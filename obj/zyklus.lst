@@ -1,0 +1,110 @@
+   1               		.file	"zyklus.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	__vector_4
+  18               	__vector_4:
+  19               	.LFB2:
+  20               	.LM1:
+  21 0000 1F92      		push __zero_reg__
+  22 0002 0F92      		push r0
+  23 0004 0FB6      		in r0,__SREG__
+  24 0006 0F92      		push r0
+  25 0008 1124      		clr __zero_reg__
+  26 000a 8F93      		push r24
+  27 000c 9F93      		push r25
+  28               	/* prologue: Signal */
+  29               	/* frame size = 0 */
+  30               	.LM2:
+  31 000e 8091 0000 		lds r24,abtastzeit
+  32 0012 9091 0000 		lds r25,(abtastzeit)+1
+  33 0016 0196      		adiw r24,1
+  34 0018 9093 0000 		sts (abtastzeit)+1,r25
+  35 001c 8093 0000 		sts abtastzeit,r24
+  36               	/* epilogue start */
+  37               	.LM3:
+  38 0020 9F91      		pop r25
+  39 0022 8F91      		pop r24
+  40 0024 0F90      		pop r0
+  41 0026 0FBE      		out __SREG__,r0
+  42 0028 0F90      		pop r0
+  43 002a 1F90      		pop __zero_reg__
+  44 002c 1895      		reti
+  45               	.LFE2:
+  47               	.global	init_Timer2
+  49               	init_Timer2:
+  50               	.LFB3:
+  51               	.LM4:
+  52               	/* prologue: function */
+  53               	/* frame size = 0 */
+  54               	.LM5:
+  55 002e 14BC      		out 68-32,__zero_reg__
+  56               	.LM6:
+  57 0030 86E6      		ldi r24,lo8(102)
+  58 0032 83BD      		out 67-32,r24
+  59               	.LM7:
+  60 0034 85B5      		in r24,69-32
+  61 0036 8A61      		ori r24,lo8(26)
+  62 0038 85BD      		out 69-32,r24
+  63               	.LM8:
+  64 003a 89B7      		in r24,89-32
+  65 003c 8068      		ori r24,lo8(-128)
+  66 003e 89BF      		out 89-32,r24
+  67               	/* epilogue start */
+  68               	.LM9:
+  69 0040 0895      		ret
+  70               	.LFE3:
+  72               	.global	init_pwm
+  74               	init_pwm:
+  75               	.LFB4:
+  76               	.LM10:
+  77               	/* prologue: function */
+  78               	/* frame size = 0 */
+  79               	.LM11:
+  80 0042 1DBC      		out 77-32,__zero_reg__
+  81 0044 1CBC      		out 76-32,__zero_reg__
+  82               	.LM12:
+  83 0046 9091 0000 		lds r25,cnt1_top
+  84 004a 8091 0000 		lds r24,cnt1_top+1
+  85 004e 87BD      		out 71-32,r24
+  86 0050 96BD      		out 70-32,r25
+  87               	.LM13:
+  88 0052 1BBC      		out 75-32,__zero_reg__
+  89 0054 1ABC      		out 74-32,__zero_reg__
+  90               	.LM14:
+  91 0056 8FB5      		in r24,79-32
+  92 0058 806F      		ori r24,lo8(-16)
+  93 005a 8FBD      		out 79-32,r24
+  94               	.LM15:
+  95 005c 8EB5      		in r24,78-32
+  96 005e 8161      		ori r24,lo8(17)
+  97 0060 8EBD      		out 78-32,r24
+  98               	/* epilogue start */
+  99               	.LM16:
+ 100 0062 0895      		ret
+ 101               	.LFE4:
+ 103               	.global	cnt1_top
+ 104               		.data
+ 107               	cnt1_top:
+ 108 0000 D007      		.word	2000
+ 149               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 zyklus.c
+C:\Users\student\AppData\Local\Temp/ccptYNdk.s:2      *ABS*:0000003f __SREG__
+C:\Users\student\AppData\Local\Temp/ccptYNdk.s:3      *ABS*:0000003e __SP_H__
+C:\Users\student\AppData\Local\Temp/ccptYNdk.s:4      *ABS*:0000003d __SP_L__
+C:\Users\student\AppData\Local\Temp/ccptYNdk.s:5      *ABS*:00000034 __CCP__
+C:\Users\student\AppData\Local\Temp/ccptYNdk.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\student\AppData\Local\Temp/ccptYNdk.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\student\AppData\Local\Temp/ccptYNdk.s:18     .text:00000000 __vector_4
+C:\Users\student\AppData\Local\Temp/ccptYNdk.s:49     .text:0000002e init_Timer2
+C:\Users\student\AppData\Local\Temp/ccptYNdk.s:74     .text:00000042 init_pwm
+C:\Users\student\AppData\Local\Temp/ccptYNdk.s:107    .data:00000000 cnt1_top
+
+UNDEFINED SYMBOLS
+abtastzeit
+__do_copy_data

@@ -11,6 +11,8 @@
 #include "df.h"
 #include "cc-lib.h"
 
+
+
 int16_t histerese=0;
 
 
@@ -18,35 +20,15 @@ int16_t histerese=0;
 
 // <== Eigene Funktion und Bedingungen formulieren / schreiben
 void fahren1(void){
-	fahr(20);
-	if(abstandvorne > 29)
+	if (abstandvorne > 130)
 	{
-		if (abstandvorne > 130)
-		{
-			fahr(25);
-			if (abstandrechts > 30)
-			{
-				if (abstandrechts < 60)
-				{
-					servo(0);
-				}
-				else
-				{
-					servo(6);
-				}
-			}
-			else
-			{
-				servo(-8);
-			}
-		}
-		else
-		{
-			fahr(20);
-			servo(-10);
-		}
-		
+		fahr(25);
 	}
+	else
+	{
+		fahr(20);
+	}
+	servo(pReglerServoRechts(abstandrechts));
 }
 
 void fahren2(void){
@@ -85,7 +67,7 @@ uint16_t linearisierungAD(uint16_t analogwert, uint8_t cosAlpha){
 	return cm;
 }
 
-void pReglerServoRechts(uint16_t distance){
+uint16_t pReglerServoRechts(uint16_t distance){
 	//ausrichten an der rechten Wand mit P-Regler
 	//Funktion y(e) = me + b z
 
@@ -101,8 +83,8 @@ void pReglerServoRechts(uint16_t distance){
 		
 	//bestimmen der Regelabweichung
 	//z.B. Sollwert gerade (35cm),	20cm volllinks, 50cm vollrechts
-	servo(m1/m2 * distance + b);
 	
+	return (m1 * distance)/m2 - b;
 
 }
 

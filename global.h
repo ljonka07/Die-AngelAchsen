@@ -12,9 +12,6 @@
 #define B2 -9
 #define A3 23430
 #define B3 6
-#define b -15
-#define m1 25
-#define m2 100
 
 #define  MAXVOLLLINKS		1100
 #define  MAXVOLLRECHTS		500
@@ -84,15 +81,15 @@ extern 	char zeichen;
 extern	int16_t servoML;
 extern	int16_t servoG;
 extern	int16_t servoMR;
-extern	int8_t maxFahr;	//in %
+extern	int8_t maxFahr;	    //in %
 
 //P-Regler, m = m1/m2
-extern 	int16_t m1;		 //float Operation vermeiden!
-extern 	int16_t m2;		 //Divisor Steigung
-//extern 	int16_t b;		 //Durchbruch durch die Y-Achse, wird nicht bwnötigt
-extern 	int16_t e;		 //e=Regelabweichung in cm
+extern 	int16_t m1;		    //float Operation vermeiden!
+extern 	int16_t m2;		    //Divisor Steigung
+extern 	int16_t b;		    //Durchbruch durch die Y-Achse, wird nicht bwnötigt
+extern 	int16_t e;		    //e=Regelabweichung in cm
 extern 	int16_t y;			//y=Stellgröße / Winkel
-extern 	int16_t sollwert;//Sollwert 45 cm  
+extern 	int16_t sollwert;   //Sollwert 45 cm  
 
 extern union conv
 {

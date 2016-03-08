@@ -20,7 +20,7 @@ void fahren3(void);
 uint16_t  linearisierungAD(uint16_t analogwert, uint8_t cosAlpha);
 void akkuSpannungPruefen(int schwellwert);
 void ledSchalterTest(void);
-void pReglerServoRechts(uint16_t distance);
+uint16_t pReglerServoRechts(uint16_t distance);
 
 
 #endif
