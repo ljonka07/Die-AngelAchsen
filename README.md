@@ -14,3 +14,4 @@ Bitte beachten:
 -Gerne eine Beschreibung, um in Stichworten festzuhalten, was genau geändert wurde.
 -Keine Trolls - solange ich der Admin bin werden solche Verstöße HART geahndet
 -Habt Spaß mit diesem Projekt und vergesst nicht, ab und zu etwas beizutragen.
+-Bitte möglichst viele Kommentare in den Code packen, auch wen es schwerfällt hilft es der Nachvollziehbarkeit
