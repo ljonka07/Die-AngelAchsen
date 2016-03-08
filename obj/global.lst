@@ -1,0 +1,258 @@
+   1               		.file	"global.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	abtastzeit
+  17               	.global	abtastzeit
+  18               		.section .bss
+  21               	abtastzeit:
+  22 0000 0000      		.skip 2,0
+  23               	.global	abtastzeitMAX
+  24               	.global	abtastzeitMAX
+  27               	abtastzeitMAX:
+  28 0002 0000      		.skip 2,0
+  29               	.global	hAabtastzeit
+  30               	.global	hAabtastzeit
+  33               	hAabtastzeit:
+  34 0004 0000      		.skip 2,0
+  35               	.global	OutL
+  36               	.global	OutL
+  39               	OutL:
+  40 0006 0000      		.skip 2,0
+  41               	.global	OutR
+  42               	.global	OutR
+  45               	OutR:
+  46 0008 0000      		.skip 2,0
+  47               	.global	OutV
+  48               	.global	OutV
+  51               	OutV:
+  52 000a 0000      		.skip 2,0
+  53               	.global	OutS
+  54               	.global	OutS
+  57               	OutS:
+  58 000c 0000      		.skip 2,0
+  59               	.global	OutFR
+  60               	.global	OutFR
+  63               	OutFR:
+  64 000e 0000      		.skip 2,0
+  65               	.global	OutHL
+  66               	.global	OutHL
+  69               	OutHL:
+  70 0010 0000      		.skip 2,0
+  71               	.global	OutHR
+  72               	.global	OutHR
+  75               	OutHR:
+  76 0012 0000      		.skip 2,0
+  77               	.global	OutHV
+  78               	.global	OutHV
+  81               	OutHV:
+  82 0014 0000      		.skip 2,0
+  83               	.global	OutHS
+  84               	.global	OutHS
+  87               	OutHS:
+  88 0016 0000      		.skip 2,0
+  89               	.global	OutHFR
+  90               	.global	OutHFR
+  93               	OutHFR:
+  94 0018 0000      		.skip 2,0
+  95               	.global	j
+  96               	.global	j
+  99               	j:
+ 100 001a 00        		.skip 1,0
+ 101               	.global	logOnOff
+ 102               	.global	logOnOff
+ 105               	logOnOff:
+ 106 001b 00        		.skip 1,0
+ 107               	.global	logCmOnOff
+ 108               	.global	logCmOnOff
+ 111               	logCmOnOff:
+ 112 001c 00        		.skip 1,0
+ 113               	.global	history
+ 114               	.global	history
+ 117               	history:
+ 118 001d 00        		.skip 1,0
+ 119               	.global	logStart
+ 120               	.global	logStart
+ 123               	logStart:
+ 124 001e 00        		.skip 1,0
+ 125               	.global	hspStart
+ 126               	.global	hspStart
+ 129               	hspStart:
+ 130 001f 00        		.skip 1,0
+ 131               	.global	anzahl
+ 132               		.data
+ 135               	anzahl:
+ 136 0000 07        		.byte	7
+ 137               	.global	mod
+ 138               	.global	mod
+ 139               		.section .bss
+ 142               	mod:
+ 143 0020 00        		.skip 1,0
+ 144               	.global	kommand
+ 145               	.global	kommand
+ 148               	kommand:
+ 149 0021 0000      		.skip 2,0
+ 150               	.global	welcome
+ 151               		.data
+ 154               	welcome:
+ 155 0001 4343 2056 		.string	"CC V1.31 "
+ 155      312E 3331 
+ 155      2000 
+ 156               	.global	freeRAMText
+ 159               	freeRAMText:
+ 160 000b 6672 6565 		.string	"freeRAM="
+ 160      5241 4D3D 
+ 160      00
+ 161               	.global	abtastzeitMAXText
+ 164               	abtastzeitMAXText:
+ 165 0014 417A 4D61 		.string	"AzMax="
+ 165      783D 00
+ 166               	.global	kommandoText
+ 169               	kommandoText:
+ 170 001b 4B6F 6D6D 		.string	"Kommando"
+ 170      616E 646F 
+ 170      00
+ 171               	.global	info1kommandos
+ 174               	info1kommandos:
+ 175 0024 733A 0973 		.string	"s:\ts,f,log,cm,ha,hs,mm\r"
+ 175      2C66 2C6C 
+ 175      6F67 2C63 
+ 175      6D2C 6861 
+ 175      2C68 732C 
+ 176               	.global	kommandos
+ 179               	kommandos:
+ 180 003c 7300      		.string	"s"
+ 181 003e 0000      		.skip 2,0
+ 182 0040 6600      		.string	"f"
+ 183 0042 0000      		.skip 2,0
+ 184 0044 6C6F 6700 		.string	"log"
+ 185 0048 636D 00   		.string	"cm"
+ 186 004b 00        		.skip 1,0
+ 187 004c 6861 00   		.string	"ha"
+ 188 004f 00        		.skip 1,0
+ 189 0050 6873 00   		.string	"hs"
+ 190 0053 00        		.skip 1,0
+ 191 0054 6D6D 00   		.string	"mm"
+ 192 0057 00        		.skip 1,0
+ 193               	.global	modTEXT
+ 196               	modTEXT:
+ 197 0058 4D6F 643D 		.string	"Mod="
+ 197      00
+ 198               	.global	tab
+ 201               	tab:
+ 202 005d 0900      		.string	"\t"
+ 203               	.global	text3
+ 206               	text3:
+ 207 005f 0961 6E00 		.string	"\tan"
+ 208               	.global	text4
+ 211               	text4:
+ 212 0063 0961 7573 		.string	"\taus"
+ 212      00
+ 213               	.global	textF
+ 216               	textF:
+ 217 0068 756E 67FC 		.string	"ung\374ltig"
+ 217      6C74 6967 
+ 217      00
+ 218               	.global	m1
+ 221               	m1:
+ 222 0071 4300      		.word	67
+ 223               	.global	m2
+ 226               	m2:
+ 227 0073 6400      		.word	100
+ 228               	.global	sollwert
+ 231               	sollwert:
+ 232 0075 2300      		.word	35
+ 233               		.comm abstandlinks,2,1
+ 234               		.comm abstandrechts,2,1
+ 235               		.comm abstandvorne,2,1
+ 236               		.comm analogwertAkku,2,1
+ 237               		.comm analogwertL,2,1
+ 238               		.comm analogwertR,2,1
+ 239               		.comm analogwertV,2,1
+ 240               		.comm eingabe,25,1
+ 241               		.comm befehl,1,1
+ 242               		.comm texth,25,1
+ 243               		.comm wert,2,1
+ 244               		.comm zeichen,1,1
+ 245               		.comm servoML,2,1
+ 246               		.comm servoG,2,1
+ 247               		.comm servoMR,2,1
+ 248               		.comm maxFahr,1,1
+ 249               		.comm e,2,1
+ 250               		.comm y,2,1
+ 251               		.comm convert,2,1
+ 252               		.comm fahr,2,1
+ 253               		.text
+ 254               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 global.c
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:2      *ABS*:0000003f __SREG__
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:3      *ABS*:0000003e __SP_H__
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:4      *ABS*:0000003d __SP_L__
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:5      *ABS*:00000034 __CCP__
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:21     .bss:00000000 abtastzeit
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:27     .bss:00000002 abtastzeitMAX
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:33     .bss:00000004 hAabtastzeit
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:39     .bss:00000006 OutL
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:45     .bss:00000008 OutR
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:51     .bss:0000000a OutV
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:57     .bss:0000000c OutS
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:63     .bss:0000000e OutFR
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:69     .bss:00000010 OutHL
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:75     .bss:00000012 OutHR
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:81     .bss:00000014 OutHV
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:87     .bss:00000016 OutHS
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:93     .bss:00000018 OutHFR
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:99     .bss:0000001a j
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:105    .bss:0000001b logOnOff
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:111    .bss:0000001c logCmOnOff
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:117    .bss:0000001d history
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:123    .bss:0000001e logStart
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:129    .bss:0000001f hspStart
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:135    .data:00000000 anzahl
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:142    .bss:00000020 mod
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:148    .bss:00000021 kommand
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:154    .data:00000001 welcome
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:159    .data:0000000b freeRAMText
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:164    .data:00000014 abtastzeitMAXText
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:169    .data:0000001b kommandoText
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:174    .data:00000024 info1kommandos
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:179    .data:0000003c kommandos
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:196    .data:00000058 modTEXT
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:201    .data:0000005d tab
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:206    .data:0000005f text3
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:211    .data:00000063 text4
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:216    .data:00000068 textF
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:221    .data:00000071 m1
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:226    .data:00000073 m2
+C:\Users\student\AppData\Local\Temp/ccWmxsFC.s:231    .data:00000075 sollwert
+                            *COM*:00000002 abstandlinks
+                            *COM*:00000002 abstandrechts
+                            *COM*:00000002 abstandvorne
+                            *COM*:00000002 analogwertAkku
+                            *COM*:00000002 analogwertL
+                            *COM*:00000002 analogwertR
+                            *COM*:00000002 analogwertV
+                            *COM*:00000019 eingabe
+                            *COM*:00000001 befehl
+                            *COM*:00000019 texth
+                            *COM*:00000002 wert
+                            *COM*:00000001 zeichen
+                            *COM*:00000002 servoML
+                            *COM*:00000002 servoG
+                            *COM*:00000002 servoMR
+                            *COM*:00000001 maxFahr
+                            *COM*:00000002 e
+                            *COM*:00000002 y
+                            *COM*:00000002 convert
+                            *COM*:00000002 fahr
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

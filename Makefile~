@@ -1,0 +1,8 @@
+
+AVRDUDE_PORT = com2
+
+TARGET = CrazyCar-V1.30
+
+SRC = $(TARGET).c pwm.c adc.c zyklus.c global.c uart.c df.c EinAusgabeUSB.c myFunktions.c 
+
+include Makefile.mk

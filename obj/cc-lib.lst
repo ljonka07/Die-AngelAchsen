@@ -1,0 +1,576 @@
+   1               		.file	"cc-lib.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	initServo
+  18               	initServo:
+  19               	.LFB7:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	.LM2:
+  25 0000 24E0      		ldi r18,hi8(1101)
+  26 0002 8D34      		cpi r24,lo8(1101)
+  27 0004 9207      		cpc r25,r18
+  28 0006 00F0      		brlo .L9
+  29               	.L2:
+  30               	.LM3:
+  31 0008 8EEE      		ldi r24,lo8(750)
+  32 000a 92E0      		ldi r25,hi8(750)
+  33               	.LVL1:
+  34               	.L9:
+  35 000c 9093 0000 		sts (servoML)+1,r25
+  36 0010 8093 0000 		sts servoML,r24
+  37               	.LVL2:
+  38               	.LM4:
+  39 0014 81E0      		ldi r24,hi8(500)
+  40 0016 443F      		cpi r20,lo8(500)
+  41 0018 5807      		cpc r21,r24
+  42 001a 00F0      		brlo .L4
+  43 001c 5093 0000 		sts (servoMR)+1,r21
+  44 0020 4093 0000 		sts servoMR,r20
+  45 0024 00C0      		rjmp .L5
+  46               	.L4:
+  47               	.LM5:
+  48 0026 8AE8      		ldi r24,lo8(650)
+  49 0028 92E0      		ldi r25,hi8(650)
+  50 002a 9093 0000 		sts (servoMR)+1,r25
+  51 002e 8093 0000 		sts servoMR,r24
+  52               	.L5:
+  53               	.LM6:
+  54 0032 CB01      		movw r24,r22
+  55 0034 845F      		subi r24,lo8(-(-500))
+  56 0036 9140      		sbci r25,hi8(-(-500))
+  57 0038 8855      		subi r24,lo8(600)
+  58 003a 9240      		sbci r25,hi8(600)
+  59 003c 00F4      		brsh .L6
+  60 003e 7093 0000 		sts (servoG)+1,r23
+  61 0042 6093 0000 		sts servoG,r22
+  62 0046 0895      		ret
+  63               	.L6:
+  64               	.LM7:
+  65 0048 8CEB      		ldi r24,lo8(700)
+  66 004a 92E0      		ldi r25,hi8(700)
+  67 004c 9093 0000 		sts (servoG)+1,r25
+  68 0050 8093 0000 		sts servoG,r24
+  69 0054 0895      		ret
+  70               	.LFE7:
+  72               	.global	servo
+  74               	servo:
+  75               	.LFB8:
+  76               	.LM8:
+  77               	.LVL3:
+  78               	/* prologue: function */
+  79               	/* frame size = 0 */
+  80 0056 9C01      		movw r18,r24
+  81               	.LM9:
+  82 0058 0097      		sbiw r24,0
+  83 005a 01F4      		brne .L11
+  84 005c 8091 0000 		lds r24,servoG
+  85 0060 9091 0000 		lds r25,(servoG)+1
+  86               	.LVL4:
+  87 0064 00C0      		rjmp .L19
+  88               	.LVL5:
+  89               	.L11:
+  90               	.LM10:
+  91 0066 8A30      		cpi r24,10
+  92 0068 9105      		cpc r25,__zero_reg__
+  93 006a 04F0      		brlt .L13
+  94 006c 8091 0000 		lds r24,servoMR
+  95 0070 9091 0000 		lds r25,(servoMR)+1
+  96               	.LVL6:
+  97 0074 00C0      		rjmp .L19
+  98               	.LVL7:
+  99               	.L13:
+ 100               	.LM11:
+ 101 0076 4FEF      		ldi r20,hi8(-9)
+ 102 0078 873F      		cpi r24,lo8(-9)
+ 103 007a 9407      		cpc r25,r20
+ 104 007c 04F4      		brge .L14
+ 105 007e 8091 0000 		lds r24,servoML
+ 106 0082 9091 0000 		lds r25,(servoML)+1
+ 107               	.LVL8:
+ 108 0086 00C0      		rjmp .L19
+ 109               	.LVL9:
+ 110               	.L14:
+ 111 0088 E091 0000 		lds r30,servoG
+ 112 008c F091 0000 		lds r31,(servoG)+1
+ 113               	.LM12:
+ 114 0090 1816      		cp __zero_reg__,r24
+ 115 0092 1906      		cpc __zero_reg__,r25
+ 116 0094 04F4      		brge .L15
+ 117 0096 8091 0000 		lds r24,servoMR
+ 118 009a 9091 0000 		lds r25,(servoMR)+1
+ 119               	.LVL10:
+ 120 009e AF01      		movw r20,r30
+ 121 00a0 481B      		sub r20,r24
+ 122 00a2 590B      		sbc r21,r25
+ 123 00a4 CA01      		movw r24,r20
+ 124 00a6 00C0      		rjmp .L20
+ 125               	.LVL11:
+ 126               	.L15:
+ 127               	.LM13:
+ 128 00a8 8091 0000 		lds r24,servoML
+ 129 00ac 9091 0000 		lds r25,(servoML)+1
+ 130               	.LVL12:
+ 131 00b0 8E1B      		sub r24,r30
+ 132 00b2 9F0B      		sbc r25,r31
+ 133               	.L20:
+ 134 00b4 66EF      		ldi r22,lo8(-10)
+ 135 00b6 7FEF      		ldi r23,hi8(-10)
+ 136 00b8 0E94 0000 		call __divmodhi4
+ 137 00bc 629F      		mul r22,r18
+ 138 00be C001      		movw r24,r0
+ 139 00c0 639F      		mul r22,r19
+ 140 00c2 900D      		add r25,r0
+ 141 00c4 729F      		mul r23,r18
+ 142 00c6 900D      		add r25,r0
+ 143 00c8 1124      		clr r1
+ 144 00ca 8E0F      		add r24,r30
+ 145 00cc 9F1F      		adc r25,r31
+ 146               	.L19:
+ 147 00ce 9093 0000 		sts (wert)+1,r25
+ 148 00d2 8093 0000 		sts wert,r24
+ 149               	.LM14:
+ 150 00d6 2091 0000 		lds r18,wert
+ 151 00da 3091 0000 		lds r19,(wert)+1
+ 152               	.LVL13:
+ 153 00de C901      		movw r24,r18
+ 154 00e0 845F      		subi r24,lo8(-(-500))
+ 155 00e2 9140      		sbci r25,hi8(-(-500))
+ 156 00e4 8955      		subi r24,lo8(601)
+ 157 00e6 9240      		sbci r25,hi8(601)
+ 158 00e8 00F0      		brlo .L16
+ 159               	.LM15:
+ 160 00ea AA9A      		sbi 53-32,2
+ 161 00ec 0895      		ret
+ 162               	.L16:
+ 163               	.LM16:
+ 164 00ee 3BBD      		out (74)+1-32,r19
+ 165 00f0 2ABD      		out 74-32,r18
+ 166 00f2 0895      		ret
+ 167               	.LFE8:
+ 169               	.global	initFahr
+ 171               	initFahr:
+ 172               	.LFB9:
+ 173               	.LM17:
+ 174               	.LVL14:
+ 175               	/* prologue: function */
+ 176               	/* frame size = 0 */
+ 177               	.LM18:
+ 178 00f4 8093 0000 		sts maxFahr,r24
+ 179               	/* epilogue start */
+ 180               	.LM19:
+ 181 00f8 0895      		ret
+ 182               	.LFE9:
+ 184               	.global	freeRam
+ 186               	freeRam:
+ 187               	.LFB12:
+ 188               	.LM20:
+ 189 00fa DF93      		push r29
+ 190 00fc CF93      		push r28
+ 191 00fe 00D0      		rcall .
+ 192 0100 CDB7      		in r28,__SP_L__
+ 193 0102 DEB7      		in r29,__SP_H__
+ 194               	/* prologue: function */
+ 195               	/* frame size = 2 */
+ 196               	.LM21:
+ 197 0104 8091 0000 		lds r24,__brkval
+ 198 0108 9091 0000 		lds r25,(__brkval)+1
+ 199 010c 0097      		sbiw r24,0
+ 200 010e 01F4      		brne .L27
+ 201               	.L24:
+ 202 0110 80E0      		ldi r24,lo8(__heap_start)
+ 203 0112 90E0      		ldi r25,hi8(__heap_start)
+ 204               	.L27:
+ 205 0114 880F      		lsl r24
+ 206 0116 991F      		rol r25
+ 207 0118 4427      		clr r20
+ 208 011a 5527      		clr r21
+ 209 011c 481B      		sub r20,r24
+ 210 011e 590B      		sbc r21,r25
+ 211 0120 9E01      		movw r18,r28
+ 212 0122 2F5F      		subi r18,lo8(-(1))
+ 213 0124 3F4F      		sbci r19,hi8(-(1))
+ 214 0126 240F      		add r18,r20
+ 215 0128 351F      		adc r19,r21
+ 216               	.LM22:
+ 217 012a C901      		movw r24,r18
+ 218               	/* epilogue start */
+ 219 012c 0F90      		pop __tmp_reg__
+ 220 012e 0F90      		pop __tmp_reg__
+ 221 0130 CF91      		pop r28
+ 222 0132 DF91      		pop r29
+ 223 0134 0895      		ret
+ 224               	.LFE12:
+ 226               	.global	rueckwaerts
+ 228               	rueckwaerts:
+ 229               	.LFB11:
+ 230               	.LM23:
+ 231               	.LVL15:
+ 232 0136 0F93      		push r16
+ 233 0138 1F93      		push r17
+ 234               	/* prologue: function */
+ 235               	/* frame size = 0 */
+ 236 013a 182F      		mov r17,r24
+ 237 013c 092F      		mov r16,r25
+ 238               	.LVL16:
+ 239               	.LM24:
+ 240 013e 88B5      		in r24,72-32
+ 241 0140 99B5      		in r25,(72)+1-32
+ 242               	.LVL17:
+ 243 0142 8C5B      		subi r24,lo8(700)
+ 244 0144 9240      		sbci r25,hi8(700)
+ 245 0146 00F0      		brlo .L29
+ 246               	.LVL18:
+ 247               	.LM25:
+ 248 0148 88E5      		ldi r24,lo8(600)
+ 249 014a 92E0      		ldi r25,hi8(600)
+ 250 014c 99BD      		out (72)+1-32,r25
+ 251 014e 88BD      		out 72-32,r24
+ 252               	.LM26:
+ 253 0150 84E6      		ldi r24,lo8(100)
+ 254 0152 90E0      		ldi r25,hi8(100)
+ 255 0154 0E94 0000 		call warte_ms
+ 256               	.LM27:
+ 257 0158 8CEB      		ldi r24,lo8(700)
+ 258 015a 92E0      		ldi r25,hi8(700)
+ 259 015c 99BD      		out (72)+1-32,r25
+ 260 015e 88BD      		out 72-32,r24
+ 261               	.LM28:
+ 262 0160 84E6      		ldi r24,lo8(100)
+ 263 0162 90E0      		ldi r25,hi8(100)
+ 264 0164 0E94 0000 		call warte_ms
+ 265               	.LVL19:
+ 266               	.L29:
+ 267               	.LM29:
+ 268 0168 812F      		mov r24,r17
+ 269 016a 902F      		mov r25,r16
+ 270 016c 99BD      		out (72)+1-32,r25
+ 271 016e 88BD      		out 72-32,r24
+ 272               	/* epilogue start */
+ 273               	.LM30:
+ 274 0170 1F91      		pop r17
+ 275               	.LVL20:
+ 276 0172 0F91      		pop r16
+ 277               	.LVL21:
+ 278 0174 0895      		ret
+ 279               	.LFE11:
+ 281               	.global	fahr
+ 283               	fahr:
+ 284               	.LFB10:
+ 285               	.LM31:
+ 286               	.LVL22:
+ 287               	/* prologue: function */
+ 288               	/* frame size = 0 */
+ 289 0176 9C01      		movw r18,r24
+ 290               	.LM32:
+ 291 0178 97FD      		sbrc r25,7
+ 292 017a 00C0      		rjmp .L32
+ 293 017c 8091 0000 		lds r24,maxFahr
+ 294               	.LVL23:
+ 295 0180 9927      		clr r25
+ 296 0182 87FD      		sbrc r24,7
+ 297 0184 9095      		com r25
+ 298 0186 8217      		cp r24,r18
+ 299 0188 9307      		cpc r25,r19
+ 300 018a 04F0      		brlt .L33
+ 301 018c C901      		movw r24,r18
+ 302 018e 880F      		lsl r24
+ 303 0190 991F      		rol r25
+ 304 0192 820F      		add r24,r18
+ 305 0194 931F      		adc r25,r19
+ 306 0196 8454      		subi r24,lo8(-(700))
+ 307 0198 9D4F      		sbci r25,hi8(-(700))
+ 308 019a 99BD      		out (72)+1-32,r25
+ 309 019c 88BD      		out 72-32,r24
+ 310 019e 0895      		ret
+ 311               	.L33:
+ 312               	.LM33:
+ 313 01a0 2115      		cp r18,__zero_reg__
+ 314 01a2 3105      		cpc r19,__zero_reg__
+ 315 01a4 01F4      		brne .L35
+ 316               	.LVL24:
+ 317               	.L32:
+ 318 01a6 8091 0000 		lds r24,maxFahr
+ 319 01aa 9927      		clr r25
+ 320 01ac 87FD      		sbrc r24,7
+ 321 01ae 9095      		com r25
+ 322 01b0 9095      		com r25
+ 323 01b2 8195      		neg r24
+ 324 01b4 9F4F      		sbci r25,lo8(-1)
+ 325 01b6 2817      		cp r18,r24
+ 326 01b8 3907      		cpc r19,r25
+ 327 01ba 04F0      		brlt .L35
+ 328               	.LM34:
+ 329 01bc C901      		movw r24,r18
+ 330 01be 880F      		lsl r24
+ 331 01c0 991F      		rol r25
+ 332 01c2 820F      		add r24,r18
+ 333 01c4 931F      		adc r25,r19
+ 334 01c6 8454      		subi r24,lo8(-(700))
+ 335 01c8 9D4F      		sbci r25,hi8(-(700))
+ 336 01ca 0E94 0000 		call rueckwaerts
+ 337               	.LVL25:
+ 338               	.L35:
+ 339 01ce 0895      		ret
+ 340               	.LFE10:
+ 342               		.data
+ 343               	.LC0:
+ 344 0000 5365 7276 		.string	"Servo (+/-) : "
+ 344      6F20 282B 
+ 344      2F2D 2920 
+ 344      3A20 00
+ 345               	.LC1:
+ 346 000f 4D61 7857 		.string	"MaxWert "
+ 346      6572 7420 
+ 346      00
+ 347               		.text
+ 348               	.global	testServo
+ 350               	testServo:
+ 351               	.LFB6:
+ 352               	.LM35:
+ 353 01d0 DF93      		push r29
+ 354 01d2 CF93      		push r28
+ 355 01d4 CDB7      		in r28,__SP_L__
+ 356 01d6 DEB7      		in r29,__SP_H__
+ 357 01d8 6897      		sbiw r28,24
+ 358 01da 0FB6      		in __tmp_reg__,__SREG__
+ 359 01dc F894      		cli
+ 360 01de DEBF      		out __SP_H__,r29
+ 361 01e0 0FBE      		out __SREG__,__tmp_reg__
+ 362 01e2 CDBF      		out __SP_L__,r28
+ 363               	/* prologue: function */
+ 364               	/* frame size = 24 */
+ 365               	.LM36:
+ 366 01e4 DE01      		movw r26,r28
+ 367 01e6 1A96      		adiw r26,10
+ 368 01e8 E0E0      		ldi r30,lo8(.LC0)
+ 369 01ea F0E0      		ldi r31,hi8(.LC0)
+ 370 01ec 8FE0      		ldi r24,lo8(15)
+ 371               	.L37:
+ 372 01ee 0190      		ld r0,Z+
+ 373 01f0 0D92      		st X+,r0
+ 374 01f2 8150      		subi r24,lo8(-(-1))
+ 375 01f4 01F4      		brne .L37
+ 376               	.LM37:
+ 377 01f6 DE01      		movw r26,r28
+ 378 01f8 1196      		adiw r26,1
+ 379 01fa E0E0      		ldi r30,lo8(.LC1)
+ 380 01fc F0E0      		ldi r31,hi8(.LC1)
+ 381 01fe 89E0      		ldi r24,lo8(9)
+ 382               	.L38:
+ 383 0200 0190      		ld r0,Z+
+ 384 0202 0D92      		st X+,r0
+ 385 0204 8150      		subi r24,lo8(-(-1))
+ 386 0206 01F4      		brne .L38
+ 387               	.LM38:
+ 388 0208 0E94 0000 		call uart_getc
+ 389 020c 8093 0000 		sts wert,r24
+ 390               	.LVL26:
+ 391 0210 9093 0000 		sts wert+1,r25
+ 392               	.LM39:
+ 393 0214 8093 0000 		sts zeichen,r24
+ 394               	.LM40:
+ 395 0218 8091 0000 		lds r24,kommand
+ 396 021c 9091 0000 		lds r25,(kommand)+1
+ 397               	.LVL27:
+ 398 0220 892B      		or r24,r25
+ 399 0222 01F4      		brne .L39
+ 400               	.LM41:
+ 401 0224 CE01      		movw r24,r28
+ 402 0226 0A96      		adiw r24,10
+ 403 0228 0E94 0000 		call uart_puts
+ 404               	.LM42:
+ 405 022c 8AB5      		in r24,74-32
+ 406 022e 9BB5      		in r25,(74)+1-32
+ 407 0230 60E0      		ldi r22,lo8(texth)
+ 408 0232 70E0      		ldi r23,hi8(texth)
+ 409 0234 4AE0      		ldi r20,lo8(10)
+ 410 0236 50E0      		ldi r21,hi8(10)
+ 411 0238 0E94 0000 		call itoa
+ 412               	.LM43:
+ 413 023c 80E0      		ldi r24,lo8(texth)
+ 414 023e 90E0      		ldi r25,hi8(texth)
+ 415 0240 60E0      		ldi r22,lo8(tab)
+ 416 0242 70E0      		ldi r23,hi8(tab)
+ 417 0244 0E94 0000 		call strcat
+ 418               	.LM44:
+ 419 0248 80E0      		ldi r24,lo8(texth)
+ 420 024a 90E0      		ldi r25,hi8(texth)
+ 421 024c 0E94 0000 		call uart_puts
+ 422               	.LM45:
+ 423 0250 8DE0      		ldi r24,lo8(13)
+ 424 0252 0E94 0000 		call uart_putc
+ 425               	.LM46:
+ 426 0256 81E0      		ldi r24,lo8(1)
+ 427 0258 90E0      		ldi r25,hi8(1)
+ 428 025a 9093 0000 		sts (kommand)+1,r25
+ 429 025e 8093 0000 		sts kommand,r24
+ 430               	.L39:
+ 431               	.LM47:
+ 432 0262 8091 0000 		lds r24,zeichen
+ 433 0266 8B32      		cpi r24,lo8(43)
+ 434 0268 01F0      		breq .L40
+ 435 026a 8D32      		cpi r24,lo8(45)
+ 436 026c 01F0      		breq .+2
+ 437 026e 00C0      		rjmp .L46
+ 438 0270 00C0      		rjmp .L41
+ 439               	.L40:
+ 440               	.LM48:
+ 441 0272 8AB5      		in r24,74-32
+ 442 0274 9BB5      		in r25,(74)+1-32
+ 443 0276 855F      		subi r24,lo8(501)
+ 444 0278 9140      		sbci r25,hi8(501)
+ 445 027a 00F0      		brlo .L43
+ 446               	.LM49:
+ 447 027c 8AB5      		in r24,74-32
+ 448 027e 9BB5      		in r25,(74)+1-32
+ 449 0280 0497      		sbiw r24,4
+ 450 0282 9BBD      		out (74)+1-32,r25
+ 451 0284 8ABD      		out 74-32,r24
+ 452 0286 00C0      		rjmp .L41
+ 453               	.L43:
+ 454               	.LM50:
+ 455 0288 8DE0      		ldi r24,lo8(13)
+ 456 028a 0E94 0000 		call uart_putc
+ 457               	.LM51:
+ 458 028e CE01      		movw r24,r28
+ 459 0290 0196      		adiw r24,1
+ 460 0292 0E94 0000 		call uart_puts
+ 461               	.L41:
+ 462               	.LM52:
+ 463 0296 8091 0000 		lds r24,zeichen
+ 464 029a 8D32      		cpi r24,lo8(45)
+ 465 029c 01F4      		brne .L44
+ 466               	.LM53:
+ 467 029e 8AB5      		in r24,74-32
+ 468 02a0 9BB5      		in r25,(74)+1-32
+ 469 02a2 8C54      		subi r24,lo8(1100)
+ 470 02a4 9440      		sbci r25,hi8(1100)
+ 471 02a6 00F4      		brsh .L45
+ 472               	.LM54:
+ 473 02a8 8AB5      		in r24,74-32
+ 474 02aa 9BB5      		in r25,(74)+1-32
+ 475 02ac 0496      		adiw r24,4
+ 476 02ae 9BBD      		out (74)+1-32,r25
+ 477 02b0 8ABD      		out 74-32,r24
+ 478 02b2 00C0      		rjmp .L44
+ 479               	.L45:
+ 480               	.LM55:
+ 481 02b4 8DE0      		ldi r24,lo8(13)
+ 482 02b6 0E94 0000 		call uart_putc
+ 483               	.LM56:
+ 484 02ba CE01      		movw r24,r28
+ 485 02bc 0196      		adiw r24,1
+ 486 02be 0E94 0000 		call uart_puts
+ 487               	.L44:
+ 488               	.LM57:
+ 489 02c2 CE01      		movw r24,r28
+ 490 02c4 0A96      		adiw r24,10
+ 491 02c6 0E94 0000 		call uart_puts
+ 492               	.LM58:
+ 493 02ca 8AB5      		in r24,74-32
+ 494 02cc 9BB5      		in r25,(74)+1-32
+ 495 02ce 60E0      		ldi r22,lo8(texth)
+ 496 02d0 70E0      		ldi r23,hi8(texth)
+ 497 02d2 4AE0      		ldi r20,lo8(10)
+ 498 02d4 50E0      		ldi r21,hi8(10)
+ 499 02d6 0E94 0000 		call itoa
+ 500               	.LM59:
+ 501 02da 80E0      		ldi r24,lo8(texth)
+ 502 02dc 90E0      		ldi r25,hi8(texth)
+ 503 02de 60E0      		ldi r22,lo8(tab)
+ 504 02e0 70E0      		ldi r23,hi8(tab)
+ 505 02e2 0E94 0000 		call strcat
+ 506               	.LM60:
+ 507 02e6 80E0      		ldi r24,lo8(texth)
+ 508 02e8 90E0      		ldi r25,hi8(texth)
+ 509 02ea 0E94 0000 		call uart_puts
+ 510               	.LM61:
+ 511 02ee 8DE0      		ldi r24,lo8(13)
+ 512 02f0 0E94 0000 		call uart_putc
+ 513               	.LM62:
+ 514 02f4 80E0      		ldi r24,lo8(tab)
+ 515 02f6 90E0      		ldi r25,hi8(tab)
+ 516 02f8 0E94 0000 		call uart_puts
+ 517               	.LM63:
+ 518 02fc 80E0      		ldi r24,lo8(freeRAMText)
+ 519 02fe 90E0      		ldi r25,hi8(freeRAMText)
+ 520 0300 0E94 0000 		call uart_puts
+ 521               	.LM64:
+ 522 0304 0E94 0000 		call freeRam
+ 523 0308 60E0      		ldi r22,lo8(texth)
+ 524 030a 70E0      		ldi r23,hi8(texth)
+ 525 030c 4AE0      		ldi r20,lo8(10)
+ 526 030e 50E0      		ldi r21,hi8(10)
+ 527 0310 0E94 0000 		call itoa
+ 528               	.LM65:
+ 529 0314 80E0      		ldi r24,lo8(texth)
+ 530 0316 90E0      		ldi r25,hi8(texth)
+ 531 0318 60E0      		ldi r22,lo8(tab)
+ 532 031a 70E0      		ldi r23,hi8(tab)
+ 533 031c 0E94 0000 		call strcat
+ 534               	.LM66:
+ 535 0320 80E0      		ldi r24,lo8(texth)
+ 536 0322 90E0      		ldi r25,hi8(texth)
+ 537 0324 0E94 0000 		call uart_puts
+ 538               	.LM67:
+ 539 0328 8DE0      		ldi r24,lo8(13)
+ 540 032a 0E94 0000 		call uart_putc
+ 541               	.L46:
+ 542               	/* epilogue start */
+ 543               	.LM68:
+ 544 032e 6896      		adiw r28,24
+ 545 0330 0FB6      		in __tmp_reg__,__SREG__
+ 546 0332 F894      		cli
+ 547 0334 DEBF      		out __SP_H__,r29
+ 548 0336 0FBE      		out __SREG__,__tmp_reg__
+ 549 0338 CDBF      		out __SP_L__,r28
+ 550 033a CF91      		pop r28
+ 551 033c DF91      		pop r29
+ 552 033e 0895      		ret
+ 553               	.LFE6:
+ 627               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 cc-lib.c
+C:\Users\student\AppData\Local\Temp/cc00Z6ga.s:2      *ABS*:0000003f __SREG__
+C:\Users\student\AppData\Local\Temp/cc00Z6ga.s:3      *ABS*:0000003e __SP_H__
+C:\Users\student\AppData\Local\Temp/cc00Z6ga.s:4      *ABS*:0000003d __SP_L__
+C:\Users\student\AppData\Local\Temp/cc00Z6ga.s:5      *ABS*:00000034 __CCP__
+C:\Users\student\AppData\Local\Temp/cc00Z6ga.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\student\AppData\Local\Temp/cc00Z6ga.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\student\AppData\Local\Temp/cc00Z6ga.s:18     .text:00000000 initServo
+C:\Users\student\AppData\Local\Temp/cc00Z6ga.s:74     .text:00000056 servo
+C:\Users\student\AppData\Local\Temp/cc00Z6ga.s:171    .text:000000f4 initFahr
+C:\Users\student\AppData\Local\Temp/cc00Z6ga.s:186    .text:000000fa freeRam
+C:\Users\student\AppData\Local\Temp/cc00Z6ga.s:228    .text:00000136 rueckwaerts
+C:\Users\student\AppData\Local\Temp/cc00Z6ga.s:283    .text:00000176 fahr
+C:\Users\student\AppData\Local\Temp/cc00Z6ga.s:350    .text:000001d0 testServo
+
+UNDEFINED SYMBOLS
+servoML
+servoMR
+servoG
+__divmodhi4
+wert
+maxFahr
+__brkval
+__heap_start
+warte_ms
+uart_getc
+zeichen
+kommand
+uart_puts
+texth
+itoa
+tab
+strcat
+uart_putc
+freeRAMText
+__do_copy_data

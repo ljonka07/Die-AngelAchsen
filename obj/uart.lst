@@ -1,0 +1,345 @@
+   1               		.file	"uart.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	__vector_13
+  18               	__vector_13:
+  19               	.LFB2:
+  20               	.LM1:
+  21 0000 1F92      		push __zero_reg__
+  22 0002 0F92      		push r0
+  23 0004 0FB6      		in r0,__SREG__
+  24 0006 0F92      		push r0
+  25 0008 1124      		clr __zero_reg__
+  26 000a 2F93      		push r18
+  27 000c 8F93      		push r24
+  28 000e 9F93      		push r25
+  29 0010 EF93      		push r30
+  30 0012 FF93      		push r31
+  31               	/* prologue: Signal */
+  32               	/* frame size = 0 */
+  33               	.LM2:
+  34 0014 9BB1      		in r25,43-32
+  35               	.LVL0:
+  36               	.LM3:
+  37 0016 2CB1      		in r18,44-32
+  38               	.LVL1:
+  39               	.LM4:
+  40 0018 E091 0000 		lds r30,USART_RxHead
+  41               	.LVL2:
+  42 001c EF5F      		subi r30,lo8(-(1))
+  43 001e EF71      		andi r30,lo8(31)
+  44               	.LM5:
+  45 0020 8091 0000 		lds r24,USART_RxTail
+  46 0024 E817      		cp r30,r24
+  47 0026 01F4      		brne .L2
+  48 0028 82E0      		ldi r24,lo8(2)
+  49               	.LVL3:
+  50 002a 00C0      		rjmp .L3
+  51               	.LVL4:
+  52               	.L2:
+  53               	.LM6:
+  54 002c 892F      		mov r24,r25
+  55               	.LVL5:
+  56 002e 8871      		andi r24,lo8(24)
+  57               	.LM7:
+  58 0030 E093 0000 		sts USART_RxHead,r30
+  59               	.LM8:
+  60 0034 F0E0      		ldi r31,lo8(0)
+  61 0036 E050      		subi r30,lo8(-(USART_RxBuf))
+  62 0038 F040      		sbci r31,hi8(-(USART_RxBuf))
+  63               	.LVL6:
+  64 003a 2083      		st Z,r18
+  65               	.LVL7:
+  66               	.L3:
+  67               	.LM9:
+  68 003c 8093 0000 		sts USART_LastRxError,r24
+  69               	/* epilogue start */
+  70               	.LM10:
+  71 0040 FF91      		pop r31
+  72 0042 EF91      		pop r30
+  73               	.LVL8:
+  74 0044 9F91      		pop r25
+  75               	.LVL9:
+  76 0046 8F91      		pop r24
+  77               	.LVL10:
+  78 0048 2F91      		pop r18
+  79               	.LVL11:
+  80 004a 0F90      		pop r0
+  81 004c 0FBE      		out __SREG__,r0
+  82 004e 0F90      		pop r0
+  83 0050 1F90      		pop __zero_reg__
+  84 0052 1895      		reti
+  85               	.LFE2:
+  87               	.global	__vector_14
+  89               	__vector_14:
+  90               	.LFB3:
+  91               	.LM11:
+  92 0054 1F92      		push __zero_reg__
+  93 0056 0F92      		push r0
+  94 0058 0FB6      		in r0,__SREG__
+  95 005a 0F92      		push r0
+  96 005c 1124      		clr __zero_reg__
+  97 005e 8F93      		push r24
+  98 0060 9F93      		push r25
+  99 0062 EF93      		push r30
+ 100 0064 FF93      		push r31
+ 101               	/* prologue: Signal */
+ 102               	/* frame size = 0 */
+ 103               	.LM12:
+ 104 0066 9091 0000 		lds r25,USART_TxHead
+ 105 006a 8091 0000 		lds r24,USART_TxTail
+ 106 006e 9817      		cp r25,r24
+ 107 0070 01F0      		breq .L6
+ 108               	.LM13:
+ 109 0072 E091 0000 		lds r30,USART_TxTail
+ 110               	.LVL12:
+ 111 0076 EF5F      		subi r30,lo8(-(1))
+ 112 0078 EF71      		andi r30,lo8(31)
+ 113               	.LM14:
+ 114 007a E093 0000 		sts USART_TxTail,r30
+ 115               	.LM15:
+ 116 007e F0E0      		ldi r31,lo8(0)
+ 117 0080 E050      		subi r30,lo8(-(USART_TxBuf))
+ 118 0082 F040      		sbci r31,hi8(-(USART_TxBuf))
+ 119               	.LVL13:
+ 120 0084 8081      		ld r24,Z
+ 121 0086 8CB9      		out 44-32,r24
+ 122 0088 00C0      		rjmp .L8
+ 123               	.L6:
+ 124               	.LM16:
+ 125 008a 5598      		cbi 42-32,5
+ 126               	.L8:
+ 127               	/* epilogue start */
+ 128               	.LM17:
+ 129 008c FF91      		pop r31
+ 130 008e EF91      		pop r30
+ 131 0090 9F91      		pop r25
+ 132 0092 8F91      		pop r24
+ 133 0094 0F90      		pop r0
+ 134 0096 0FBE      		out __SREG__,r0
+ 135 0098 0F90      		pop r0
+ 136 009a 1F90      		pop __zero_reg__
+ 137 009c 1895      		reti
+ 138               	.LFE3:
+ 140               	.global	uart_init
+ 142               	uart_init:
+ 143               	.LFB4:
+ 144               	.LM18:
+ 145               	.LVL14:
+ 146               	/* prologue: function */
+ 147               	/* frame size = 0 */
+ 148               	.LM19:
+ 149 009e 1092 0000 		sts USART_TxHead,__zero_reg__
+ 150               	.LM20:
+ 151 00a2 1092 0000 		sts USART_TxTail,__zero_reg__
+ 152               	.LM21:
+ 153 00a6 1092 0000 		sts USART_RxHead,__zero_reg__
+ 154               	.LM22:
+ 155 00aa 1092 0000 		sts USART_RxTail,__zero_reg__
+ 156               	.LM23:
+ 157 00ae 97FF      		sbrs r25,7
+ 158 00b0 00C0      		rjmp .L10
+ 159               	.LM24:
+ 160 00b2 82E0      		ldi r24,lo8(2)
+ 161               	.LVL15:
+ 162 00b4 8BB9      		out 43-32,r24
+ 163               	.LVL16:
+ 164               	.L10:
+ 165               	.LM25:
+ 166 00b6 10BC      		out 64-32,__zero_reg__
+ 167               	.LM26:
+ 168 00b8 83E3      		ldi r24,lo8(51)
+ 169               	.LVL17:
+ 170 00ba 89B9      		out 41-32,r24
+ 171               	.LM27:
+ 172 00bc 88E9      		ldi r24,lo8(-104)
+ 173 00be 8AB9      		out 42-32,r24
+ 174               	.LM28:
+ 175 00c0 86E8      		ldi r24,lo8(-122)
+ 176 00c2 80BD      		out 64-32,r24
+ 177               	/* epilogue start */
+ 178               	.LM29:
+ 179 00c4 0895      		ret
+ 180               	.LFE4:
+ 182               	.global	uart_getc
+ 184               	uart_getc:
+ 185               	.LFB5:
+ 186               	.LM30:
+ 187               	/* prologue: function */
+ 188               	/* frame size = 0 */
+ 189               	.LM31:
+ 190 00c6 9091 0000 		lds r25,USART_RxHead
+ 191 00ca 8091 0000 		lds r24,USART_RxTail
+ 192 00ce 9817      		cp r25,r24
+ 193 00d0 01F4      		brne .L13
+ 194 00d2 20E0      		ldi r18,lo8(256)
+ 195 00d4 31E0      		ldi r19,hi8(256)
+ 196 00d6 00C0      		rjmp .L14
+ 197               	.L13:
+ 198               	.LM32:
+ 199 00d8 E091 0000 		lds r30,USART_RxTail
+ 200               	.LVL18:
+ 201 00dc EF5F      		subi r30,lo8(-(1))
+ 202 00de EF71      		andi r30,lo8(31)
+ 203               	.LM33:
+ 204 00e0 E093 0000 		sts USART_RxTail,r30
+ 205               	.LM34:
+ 206 00e4 F0E0      		ldi r31,lo8(0)
+ 207 00e6 E050      		subi r30,lo8(-(USART_RxBuf))
+ 208 00e8 F040      		sbci r31,hi8(-(USART_RxBuf))
+ 209               	.LVL19:
+ 210 00ea 3081      		ld r19,Z
+ 211               	.LVL20:
+ 212               	.LM35:
+ 213 00ec 2091 0000 		lds r18,USART_LastRxError
+ 214 00f0 922F      		mov r25,r18
+ 215 00f2 80E0      		ldi r24,lo8(0)
+ 216 00f4 AC01      		movw r20,r24
+ 217 00f6 430F      		add r20,r19
+ 218 00f8 511D      		adc r21,__zero_reg__
+ 219 00fa 9A01      		movw r18,r20
+ 220               	.L14:
+ 221               	.LM36:
+ 222 00fc C901      		movw r24,r18
+ 223               	/* epilogue start */
+ 224 00fe 0895      		ret
+ 225               	.LFE5:
+ 227               	.global	uart_putc
+ 229               	uart_putc:
+ 230               	.LFB6:
+ 231               	.LM37:
+ 232               	.LVL21:
+ 233               	/* prologue: function */
+ 234               	/* frame size = 0 */
+ 235 0100 282F      		mov r18,r24
+ 236               	.LM38:
+ 237 0102 9091 0000 		lds r25,USART_TxHead
+ 238               	.LVL22:
+ 239 0106 9F5F      		subi r25,lo8(-(1))
+ 240 0108 9F71      		andi r25,lo8(31)
+ 241               	.LVL23:
+ 242               	.L17:
+ 243               	.LM39:
+ 244 010a 8091 0000 		lds r24,USART_TxTail
+ 245 010e 9817      		cp r25,r24
+ 246 0110 01F0      		breq .L17
+ 247               	.LM40:
+ 248 0112 E92F      		mov r30,r25
+ 249 0114 F0E0      		ldi r31,lo8(0)
+ 250 0116 E050      		subi r30,lo8(-(USART_TxBuf))
+ 251 0118 F040      		sbci r31,hi8(-(USART_TxBuf))
+ 252 011a 2083      		st Z,r18
+ 253               	.LM41:
+ 254 011c 9093 0000 		sts USART_TxHead,r25
+ 255               	.LM42:
+ 256 0120 559A      		sbi 42-32,5
+ 257               	/* epilogue start */
+ 258               	.LM43:
+ 259 0122 0895      		ret
+ 260               	.LFE6:
+ 262               	.global	uart_puts
+ 264               	uart_puts:
+ 265               	.LFB7:
+ 266               	.LM44:
+ 267               	.LVL24:
+ 268 0124 CF93      		push r28
+ 269 0126 DF93      		push r29
+ 270               	/* prologue: function */
+ 271               	/* frame size = 0 */
+ 272 0128 EC01      		movw r28,r24
+ 273 012a 00C0      		rjmp .L21
+ 274               	.LVL25:
+ 275               	.L22:
+ 276               	.LM45:
+ 277 012c 2196      		adiw r28,1
+ 278 012e 0E94 0000 		call uart_putc
+ 279               	.LVL26:
+ 280               	.L21:
+ 281               	.LM46:
+ 282 0132 8881      		ld r24,Y
+ 283 0134 8823      		tst r24
+ 284 0136 01F4      		brne .L22
+ 285               	/* epilogue start */
+ 286               	.LM47:
+ 287 0138 DF91      		pop r29
+ 288 013a CF91      		pop r28
+ 289               	.LVL27:
+ 290 013c 0895      		ret
+ 291               	.LFE7:
+ 293               	.global	uart_puts_p
+ 295               	uart_puts_p:
+ 296               	.LFB8:
+ 297               	.LM48:
+ 298               	.LVL28:
+ 299 013e CF93      		push r28
+ 300 0140 DF93      		push r29
+ 301               	/* prologue: function */
+ 302               	/* frame size = 0 */
+ 303 0142 EC01      		movw r28,r24
+ 304 0144 00C0      		rjmp .L25
+ 305               	.LVL29:
+ 306               	.L26:
+ 307               	.LM49:
+ 308 0146 0E94 0000 		call uart_putc
+ 309               	.LVL30:
+ 310               	.L25:
+ 311 014a FE01      		movw r30,r28
+ 312               	.LVL31:
+ 313               	.LBB2:
+ 314               	.LM50:
+ 315 014c 2196      		adiw r28,1
+ 316               	/* #APP */
+ 317               	 ;  236 "uart.c" 1
+ 318 014e 8491      		lpm r24, Z
+ 319               		
+ 320               	 ;  0 "" 2
+ 321               	.LVL32:
+ 322               	/* #NOAPP */
+ 323               	.LBE2:
+ 324 0150 8823      		tst r24
+ 325 0152 01F4      		brne .L26
+ 326               	/* epilogue start */
+ 327               	.LM51:
+ 328 0154 DF91      		pop r29
+ 329 0156 CF91      		pop r28
+ 330               	.LVL33:
+ 331 0158 0895      		ret
+ 332               	.LFE8:
+ 334               		.lcomm USART_TxBuf,32
+ 335               		.lcomm USART_RxBuf,32
+ 336               		.lcomm USART_TxHead,1
+ 337               		.lcomm USART_TxTail,1
+ 338               		.lcomm USART_RxHead,1
+ 339               		.lcomm USART_RxTail,1
+ 340               		.lcomm USART_LastRxError,1
+ 413               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 uart.c
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:2      *ABS*:0000003f __SREG__
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:3      *ABS*:0000003e __SP_H__
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:4      *ABS*:0000003d __SP_L__
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:5      *ABS*:00000034 __CCP__
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:18     .text:00000000 __vector_13
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:337    .bss:00000042 USART_RxHead
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:338    .bss:00000043 USART_RxTail
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:334    .bss:00000020 USART_RxBuf
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:339    .bss:00000044 USART_LastRxError
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:89     .text:00000054 __vector_14
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:335    .bss:00000040 USART_TxHead
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:336    .bss:00000041 USART_TxTail
+                             .bss:00000000 USART_TxBuf
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:142    .text:0000009e uart_init
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:184    .text:000000c6 uart_getc
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:229    .text:00000100 uart_putc
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:264    .text:00000124 uart_puts
+C:\Users\student\AppData\Local\Temp/ccignAvF.s:295    .text:0000013e uart_puts_p
+
+UNDEFINED SYMBOLS
+__do_clear_bss
