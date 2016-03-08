@@ -12,6 +12,9 @@
 #define B2 -9
 #define A3 23430
 #define B3 6
+#define b -15
+#define m1 25
+#define m2 100
 
 #define  MAXVOLLLINKS		1100
 #define  MAXVOLLRECHTS		500

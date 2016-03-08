@@ -23,7 +23,7 @@ void fahren1(void){
 	{
 		if (abstandvorne > 130)
 		{
-			fahr(20);
+			fahr(25);
 			if (abstandrechts > 30)
 			{
 				if (abstandrechts < 60)
@@ -85,11 +85,11 @@ uint16_t linearisierungAD(uint16_t analogwert, uint8_t cosAlpha){
 	return cm;
 }
 
-void pReglerServoRechts(void){
+void pReglerServoRechts(uint16_t distance){
 	//ausrichten an der rechten Wand mit P-Regler
-	//Funktion y(e) = me + b   z
+	//Funktion y(e) = me + b z
 
-	//==>  Variable sind in der global.h u. global.c definiert!  <====
+	//==>  Variablen sind in der global.h u. global.c definiert!  <====
 	//int16_t m1=67;			//float Operation vermeiden
 	//int16_t m2=100;			//Divisor Steigung
 	//mit m=m1/m2=0,67, bei +- 15cm vom Sollwert
@@ -100,7 +100,9 @@ void pReglerServoRechts(void){
 	//int16_t sollwert = 35;//Sollwert 45 cm  
 		
 	//bestimmen der Regelabweichung
-	//z.B. Sollwert greade (35cm),	20cm volllinks, 50cm vollrechts
+	//z.B. Sollwert gerade (35cm),	20cm volllinks, 50cm vollrechts
+	servo(m1/m2 * distance + b);
+	
 
 }
 
