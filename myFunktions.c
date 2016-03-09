@@ -84,16 +84,28 @@ uint16_t pReglerServoRechts(uint16_t distance){
 	//bestimmen der Regelabweichung
 	//z.B. Sollwert gerade (35cm),	20cm volllinks, 50cm vollrechts
 	
-	return (m1 * distance)/m2 - b;
+	return (m1/m2) * distance + b;
 
 }
 
 
 void akkuSpannungPruefen(int schwellwert){
-//Prüfe die AkkuSpannung nur, wenn Schalter 4 an ist und nur nach einem Rest!!
-// Alle LEDs blinken, wenn Akku-Spannung < schwellwert !!
-
+// Prüfe die AkkuSpannung nur, wenn Schalter 4 an ist und nur nach einem Reset!!
+// Alle LEDs blinken, wenn Akku-Spannung < Schwellwert !!
 	analogwertAkku=adc(7);
+	if analogwertAkku < schwellwert
+	{
+	    ledPB1(1);
+        ledPB2(1);
+        ledPC2(1);
+        ledPC3(1);
+        warte_ms(blinkT/2);
+        ledPB1(0);
+        ledPB2(0);
+        ledPC2(0);
+        ledPC3(0);
+        warte_ms(blinkT/2);
+	}
 }
 
 

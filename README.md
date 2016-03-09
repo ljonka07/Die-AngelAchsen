@@ -10,6 +10,7 @@ Der kurzfristige Zweck unseres kleinen Projektes ist es, in einem Wettbewerb mit
 Das ist wohl bisher alles über Bernhard; wer etwas hinzufügen möchte, tue dies bitte nach einer Nachricht in der Gruppe.
 
 Bitte beachten:
+
 -KEINE unbenannten Commits!!
 
 -Gerne eine Beschreibung, um in Stichworten festzuhalten, was genau geändert wurde.

@@ -89,7 +89,8 @@ extern 	int16_t m2;		    //Divisor Steigung
 extern 	int16_t b;		    //Durchbruch durch die Y-Achse, wird nicht bwnötigt
 extern 	int16_t e;		    //e=Regelabweichung in cm
 extern 	int16_t y;			//y=Stellgröße / Winkel
-extern 	int16_t sollwert;   //Sollwert 45 cm  
+extern 	int16_t sollwert;   //Sollwert 45 cm
+extern  int16_t blinkT;     //Delay für blinkende LEDs bei Spannungsabfall
 
 extern union conv
 {
