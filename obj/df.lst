@@ -988,47 +988,47 @@
  1187               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 df.c
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:2      *ABS*:0000003f __SREG__
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:3      *ABS*:0000003e __SP_H__
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:4      *ABS*:0000003d __SP_L__
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:5      *ABS*:00000034 __CCP__
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:18     .text:00000000 warte_sekunden
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:84     .text:00000028 warte_ms
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:127    .text:00000042 ledPB1
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:146    .text:0000004e ledPB2
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:165    .text:0000005a ledPC2
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:184    .text:00000066 ledPC3
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:203    .text:00000072 s1
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:225    .text:00000088 s2
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:248    .text:000000a0 s3
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:271    .text:000000b8 s4
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:294    .text:000000d0 ledPB1_flash
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:960    .data:00000000 datenSatzZaehler
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:333    .text:000000f4 ledPB2_flash
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:372    .text:00000118 ledPC2_flash
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:411    .text:0000013c ledPC3_flash
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:461    .text:0000016c terminal_aktiv
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:518    .text:000001d6 datenspeichern
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:967    .bss:00000000 historyAverageL
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:973    .bss:00000002 historyAverageR
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:979    .bss:00000004 historyAverageV
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:985    .bss:00000006 historyAverageS
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:991    .bss:00000008 historyAverageFR
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:2      *ABS*:0000003f __SREG__
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:3      *ABS*:0000003e __SP_H__
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:4      *ABS*:0000003d __SP_L__
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:5      *ABS*:00000034 __CCP__
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:18     .text:00000000 warte_sekunden
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:84     .text:00000028 warte_ms
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:127    .text:00000042 ledPB1
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:146    .text:0000004e ledPB2
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:165    .text:0000005a ledPC2
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:184    .text:00000066 ledPC3
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:203    .text:00000072 s1
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:225    .text:00000088 s2
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:248    .text:000000a0 s3
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:271    .text:000000b8 s4
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:294    .text:000000d0 ledPB1_flash
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:960    .data:00000000 datenSatzZaehler
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:333    .text:000000f4 ledPB2_flash
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:372    .text:00000118 ledPC2_flash
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:411    .text:0000013c ledPC3_flash
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:461    .text:0000016c terminal_aktiv
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:518    .text:000001d6 datenspeichern
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:967    .bss:00000000 historyAverageL
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:973    .bss:00000002 historyAverageR
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:979    .bss:00000004 historyAverageV
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:985    .bss:00000006 historyAverageS
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:991    .bss:00000008 historyAverageFR
                             *COM*:00000002 hAL
                             *COM*:00000002 hAR
                             *COM*:00000002 hAV
                             *COM*:00000002 hAS
                             *COM*:00000002 hAFR
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:997    .bss:0000000a historyDepthPointer
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:1008   .eeprom:00000000 historyDepthL
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:1013   .eeprom:0000003c historyDepthR
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:1018   .eeprom:00000078 historyDepthV
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:1023   .eeprom:000000b4 historyDepthS
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:1028   .eeprom:000000f0 historyDepthFR
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:1033   .eeprom:0000012c historyAzMAX
-C:\Users\student\AppData\Local\Temp/ccXEUJ2v.s:888    .text:000004ea initMikroController
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:997    .bss:0000000a historyDepthPointer
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:1008   .eeprom:00000000 historyDepthL
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:1013   .eeprom:0000003c historyDepthR
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:1018   .eeprom:00000078 historyDepthV
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:1023   .eeprom:000000b4 historyDepthS
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:1028   .eeprom:000000f0 historyDepthFR
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:1033   .eeprom:0000012c historyAzMAX
+C:\Users\macie\AppData\Local\Temp/cc4oqarN.s:888    .text:000004ea initMikroController
 
 UNDEFINED SYMBOLS
 __udivmodhi4

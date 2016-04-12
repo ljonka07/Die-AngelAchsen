@@ -14,20 +14,19 @@
 
 
 int16_t histerese=0;
+int16_t ar = 0;
 
 
 // servo > 0 => rechts, servo < 0 => links
 
 // <== Eigene Funktion und Bedingungen formulieren / schreiben
 void fahren1(void){
-	if (abstandvorne > 130)
-	{
-		fahr(25);
-	}
-	else
-	{
-		fahr(20);
-	}
+	ar = abstandrechts;
+	if (ar > 130){ fahr(25);}
+	else if (ar < 130){ fahr(20);}
+	else if (ar <= 30){ fahr(0);}
+	
+	
 	servo(pReglerServoRechts(abstandrechts));
 }
 
@@ -67,7 +66,9 @@ uint16_t linearisierungAD(uint16_t analogwert, uint8_t cosAlpha){
 	return cm;
 }
 
-uint16_t pReglerServoRechts(uint16_t distance){
+
+uint16_t pReglerServoRechts(uint16_t distance)
+{
 	//ausrichten an der rechten Wand mit P-Regler
 	//Funktion y(e) = me + b z
 
@@ -84,16 +85,17 @@ uint16_t pReglerServoRechts(uint16_t distance){
 	//bestimmen der Regelabweichung
 	//z.B. Sollwert gerade (35cm),	20cm volllinks, 50cm vollrechts
 	
-	return (m1/m2) * distance + b;
+	return (distance*m1)/m2 + b;
 
 }
 
 
-void akkuSpannungPruefen(int schwellwert){
+void akkuSpannungPruefen(int schwellwert)
+{
 // Prüfe die AkkuSpannung nur, wenn Schalter 4 an ist und nur nach einem Reset!!
 // Alle LEDs blinken, wenn Akku-Spannung < Schwellwert !!
 	analogwertAkku=adc(7);
-	if analogwertAkku < schwellwert
+	if (analogwertAkku < schwellwert)
 	{
 	    ledPB1(1);
         ledPB2(1);

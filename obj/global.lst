@@ -159,83 +159,87 @@
  217      00
  218               	.global	m1
  221               	m1:
- 222 0071 4300      		.word	67
+ 222 0071 0A00      		.word	10
  223               	.global	m2
  226               	m2:
- 227 0073 6400      		.word	100
+ 227 0073 1E00      		.word	30
  228               	.global	b
  231               	b:
- 232 0075 ECFF      		.word	-20
+ 232 0075 F4FF      		.word	-12
  233               	.global	sollwert
  236               	sollwert:
  237 0077 1E00      		.word	30
- 238               		.comm abstandlinks,2,1
- 239               		.comm abstandrechts,2,1
- 240               		.comm abstandvorne,2,1
- 241               		.comm analogwertAkku,2,1
- 242               		.comm analogwertL,2,1
- 243               		.comm analogwertR,2,1
- 244               		.comm analogwertV,2,1
- 245               		.comm eingabe,25,1
- 246               		.comm befehl,1,1
- 247               		.comm texth,25,1
- 248               		.comm wert,2,1
- 249               		.comm zeichen,1,1
- 250               		.comm servoML,2,1
- 251               		.comm servoG,2,1
- 252               		.comm servoMR,2,1
- 253               		.comm maxFahr,1,1
- 254               		.comm e,2,1
- 255               		.comm y,2,1
- 256               		.comm convert,2,1
- 257               		.comm fahr,2,1
- 258               		.text
- 259               	.Letext0:
+ 238               	.global	blinkT
+ 241               	blinkT:
+ 242 0079 C800      		.word	200
+ 243               		.comm abstandlinks,2,1
+ 244               		.comm abstandrechts,2,1
+ 245               		.comm abstandvorne,2,1
+ 246               		.comm analogwertAkku,2,1
+ 247               		.comm analogwertL,2,1
+ 248               		.comm analogwertR,2,1
+ 249               		.comm analogwertV,2,1
+ 250               		.comm eingabe,25,1
+ 251               		.comm befehl,1,1
+ 252               		.comm texth,25,1
+ 253               		.comm wert,2,1
+ 254               		.comm zeichen,1,1
+ 255               		.comm servoML,2,1
+ 256               		.comm servoG,2,1
+ 257               		.comm servoMR,2,1
+ 258               		.comm maxFahr,1,1
+ 259               		.comm e,2,1
+ 260               		.comm y,2,1
+ 261               		.comm convert,2,1
+ 262               		.comm fahr,2,1
+ 263               		.text
+ 264               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 global.c
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:2      *ABS*:0000003f __SREG__
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:3      *ABS*:0000003e __SP_H__
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:4      *ABS*:0000003d __SP_L__
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:5      *ABS*:00000034 __CCP__
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:21     .bss:00000000 abtastzeit
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:27     .bss:00000002 abtastzeitMAX
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:33     .bss:00000004 hAabtastzeit
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:39     .bss:00000006 OutL
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:45     .bss:00000008 OutR
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:51     .bss:0000000a OutV
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:57     .bss:0000000c OutS
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:63     .bss:0000000e OutFR
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:69     .bss:00000010 OutHL
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:75     .bss:00000012 OutHR
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:81     .bss:00000014 OutHV
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:87     .bss:00000016 OutHS
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:93     .bss:00000018 OutHFR
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:99     .bss:0000001a j
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:105    .bss:0000001b logOnOff
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:111    .bss:0000001c logCmOnOff
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:117    .bss:0000001d history
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:123    .bss:0000001e logStart
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:129    .bss:0000001f hspStart
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:135    .data:00000000 anzahl
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:142    .bss:00000020 mod
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:148    .bss:00000021 kommand
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:154    .data:00000001 welcome
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:159    .data:0000000b freeRAMText
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:164    .data:00000014 abtastzeitMAXText
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:169    .data:0000001b kommandoText
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:174    .data:00000024 info1kommandos
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:179    .data:0000003c kommandos
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:196    .data:00000058 modTEXT
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:201    .data:0000005d tab
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:206    .data:0000005f text3
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:211    .data:00000063 text4
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:216    .data:00000068 textF
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:221    .data:00000071 m1
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:226    .data:00000073 m2
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:231    .data:00000075 b
-C:\Users\student\AppData\Local\Temp/ccHkxn8p.s:236    .data:00000077 sollwert
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:2      *ABS*:0000003f __SREG__
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:3      *ABS*:0000003e __SP_H__
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:4      *ABS*:0000003d __SP_L__
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:5      *ABS*:00000034 __CCP__
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:21     .bss:00000000 abtastzeit
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:27     .bss:00000002 abtastzeitMAX
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:33     .bss:00000004 hAabtastzeit
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:39     .bss:00000006 OutL
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:45     .bss:00000008 OutR
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:51     .bss:0000000a OutV
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:57     .bss:0000000c OutS
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:63     .bss:0000000e OutFR
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:69     .bss:00000010 OutHL
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:75     .bss:00000012 OutHR
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:81     .bss:00000014 OutHV
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:87     .bss:00000016 OutHS
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:93     .bss:00000018 OutHFR
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:99     .bss:0000001a j
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:105    .bss:0000001b logOnOff
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:111    .bss:0000001c logCmOnOff
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:117    .bss:0000001d history
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:123    .bss:0000001e logStart
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:129    .bss:0000001f hspStart
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:135    .data:00000000 anzahl
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:142    .bss:00000020 mod
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:148    .bss:00000021 kommand
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:154    .data:00000001 welcome
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:159    .data:0000000b freeRAMText
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:164    .data:00000014 abtastzeitMAXText
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:169    .data:0000001b kommandoText
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:174    .data:00000024 info1kommandos
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:179    .data:0000003c kommandos
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:196    .data:00000058 modTEXT
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:201    .data:0000005d tab
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:206    .data:0000005f text3
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:211    .data:00000063 text4
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:216    .data:00000068 textF
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:221    .data:00000071 m1
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:226    .data:00000073 m2
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:231    .data:00000075 b
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:236    .data:00000077 sollwert
+C:\Users\macie\AppData\Local\Temp/ccaicXev.s:241    .data:00000079 blinkT
                             *COM*:00000002 abstandlinks
                             *COM*:00000002 abstandrechts
                             *COM*:00000002 abstandvorne

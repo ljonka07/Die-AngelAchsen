@@ -54,13 +54,13 @@ int16_t servoMR;
 int8_t maxFahr;	//in %
 
 //P-Regler, m = m1/m2
-int16_t m1=50;			 //float Operation vermeiden!
-int16_t m2=100;			 //Divisor Steigung
-int16_t b=-20;			 //Durchbruch durch die Y-Achse, wird nicht benötigt
+int16_t m1=10;			 //float Operation vermeiden!
+int16_t m2=30;			 //Divisor Steigung
+int16_t b=-12;			 //Durchbruch durch die Y-Achse, wird nicht benötigt
 int16_t e;				 //e=Regelabweichung in cm
 int16_t y;				 //y=Stellgröße / Winkel
 int16_t sollwert = 30;	 //Sollwert 45 cm
-int1_t blinkT = 200;     //Delay für blinkende LEDs bei Spannungsabfall
+int16_t blinkT = 200;     //Delay für blinkende LEDs bei Spannungsabfall
 
 union conv convert;
  
