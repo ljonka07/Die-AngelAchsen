@@ -23,8 +23,8 @@ int main (void)
 	initMikroController();     //Initialisierung des Mikrocontrollers
 	// while(1) { testServo(); }//<== Initialisierung  Servo, 1X <==========
 	
-	initServo(856,732,624);  //<== Volllinks, Gerade, Vollrechts eintragen, Servo, 1X <==========
-	initFahr(50);					// klein anfangen, bis Fahrzeug sicher faehrt
+	initServo(864,732,600);  //<== Volllinks, Gerade, Vollrechts eintragen, Servo, 1X <==========
+	initFahr(100);					// klein anfangen, bis Fahrzeug sicher faehrt
 	
 	servo(0);						//Ansteuerung des Servos (GERADEAUS)
 	fahr(0);      					//Ansteuerung des Fahrtenreglers (STOP)

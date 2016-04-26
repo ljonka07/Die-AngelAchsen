@@ -15,19 +15,46 @@
 
 int16_t histerese=0;
 int16_t ar = 0;
+int16_t av = 0;
+int16_t al = 0;
+int16_t back = 0;
+int16_t serv = 0;
 
 
 // servo > 0 => rechts, servo < 0 => links
 
 // <== Eigene Funktion und Bedingungen formulieren / schreiben
 void fahren1(void){
+	if (abstandvorne > 50) 
+	{ 
+		back = 0;
+	}
 	ar = abstandrechts;
-	if (ar > 130){ fahr(25);}
-	else if (ar < 130){ fahr(20);}
-	else if (ar <= 30){ fahr(0);}
-	
-	
-	servo(pReglerServoRechts(abstandrechts));
+	av = abstandvorne;
+	al = abstandlinks;
+	if (abstandvorne > 130) 
+	{
+		fahr(25);
+		servo(pReglerServoRechts(abstandrechts, abstandlinks, abstandvorne));
+	}
+	else if ((abstandvorne < 130) && (back == 0) && (abstandvorne > 30)) 
+	{ 
+		fahr(20); 
+		servo(pReglerServoRechts(abstandrechts));
+	}
+	else if ((abstandvorne < 30) || (back == 1))
+	{ 
+		back = 1;
+		fahr(-20);
+		if (ar > al)
+		{
+			servo(-10);
+		}
+		else
+		{
+			servo(10);
+		}
+	}
 }
 
 void fahren2(void){
@@ -67,7 +94,7 @@ uint16_t linearisierungAD(uint16_t analogwert, uint8_t cosAlpha){
 }
 
 
-uint16_t pReglerServoRechts(uint16_t distance)
+uint16_t pReglerServoRechts(uint16_t distanceR, uint16_t distanceL, uint16_t distanceV)
 {
 	//ausrichten an der rechten Wand mit P-Regler
 	//Funktion y(e) = me + b z
@@ -84,9 +111,28 @@ uint16_t pReglerServoRechts(uint16_t distance)
 		
 	//bestimmen der Regelabweichung
 	//z.B. Sollwert gerade (35cm),	20cm volllinks, 50cm vollrechts
-	
-	return (distance*m1)/m2 + b;
-
+	if (distanceV > 100) {
+		if (distanceL > 100)
+		{
+			serv = (distanceR*m1)/m2 + b;
+		} 
+		else if (distanceR > 100)
+		{
+			serv =  (distanceL*m1)/m2 + b;
+		}
+	} 
+	else 
+	{
+		if (distanceL > distanceR) 
+		{
+			serv = -10;
+		} 
+		else 
+		{
+			serv = 10;
+		}
+	}
+	return serv
 }
 
 
