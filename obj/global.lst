@@ -162,84 +162,80 @@
  222 0071 0A00      		.word	10
  223               	.global	m2
  226               	m2:
- 227 0073 1E00      		.word	30
- 228               	.global	b
- 231               	b:
- 232 0075 F4FF      		.word	-12
- 233               	.global	sollwert
- 236               	sollwert:
- 237 0077 1E00      		.word	30
- 238               	.global	blinkT
- 241               	blinkT:
- 242 0079 C800      		.word	200
- 243               		.comm abstandlinks,2,1
- 244               		.comm abstandrechts,2,1
- 245               		.comm abstandvorne,2,1
- 246               		.comm analogwertAkku,2,1
- 247               		.comm analogwertL,2,1
- 248               		.comm analogwertR,2,1
- 249               		.comm analogwertV,2,1
- 250               		.comm eingabe,25,1
- 251               		.comm befehl,1,1
- 252               		.comm texth,25,1
- 253               		.comm wert,2,1
- 254               		.comm zeichen,1,1
- 255               		.comm servoML,2,1
- 256               		.comm servoG,2,1
- 257               		.comm servoMR,2,1
- 258               		.comm maxFahr,1,1
- 259               		.comm e,2,1
- 260               		.comm y,2,1
- 261               		.comm convert,2,1
- 262               		.comm fahr,2,1
- 263               		.text
- 264               	.Letext0:
+ 227 0073 1400      		.word	20
+ 228               	.global	sollwert
+ 231               	sollwert:
+ 232 0075 2800      		.word	40
+ 233               	.global	blinkT
+ 236               	blinkT:
+ 237 0077 C800      		.word	200
+ 238               		.comm abstandlinks,2,1
+ 239               		.comm abstandrechts,2,1
+ 240               		.comm abstandvorne,2,1
+ 241               		.comm analogwertAkku,2,1
+ 242               		.comm analogwertL,2,1
+ 243               		.comm analogwertR,2,1
+ 244               		.comm analogwertV,2,1
+ 245               		.comm eingabe,25,1
+ 246               		.comm befehl,1,1
+ 247               		.comm texth,25,1
+ 248               		.comm wert,2,1
+ 249               		.comm zeichen,1,1
+ 250               		.comm servoML,2,1
+ 251               		.comm servoG,2,1
+ 252               		.comm servoMR,2,1
+ 253               		.comm maxFahr,1,1
+ 254               		.comm e,2,1
+ 255               		.comm y,2,1
+ 256               		.comm convert,2,1
+ 257               		.comm fahr,2,1
+ 258               		.text
+ 259               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 global.c
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:2      *ABS*:0000003f __SREG__
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:3      *ABS*:0000003e __SP_H__
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:4      *ABS*:0000003d __SP_L__
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:5      *ABS*:00000034 __CCP__
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:21     .bss:00000000 abtastzeit
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:27     .bss:00000002 abtastzeitMAX
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:33     .bss:00000004 hAabtastzeit
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:39     .bss:00000006 OutL
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:45     .bss:00000008 OutR
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:51     .bss:0000000a OutV
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:57     .bss:0000000c OutS
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:63     .bss:0000000e OutFR
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:69     .bss:00000010 OutHL
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:75     .bss:00000012 OutHR
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:81     .bss:00000014 OutHV
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:87     .bss:00000016 OutHS
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:93     .bss:00000018 OutHFR
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:99     .bss:0000001a j
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:105    .bss:0000001b logOnOff
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:111    .bss:0000001c logCmOnOff
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:117    .bss:0000001d history
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:123    .bss:0000001e logStart
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:129    .bss:0000001f hspStart
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:135    .data:00000000 anzahl
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:142    .bss:00000020 mod
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:148    .bss:00000021 kommand
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:154    .data:00000001 welcome
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:159    .data:0000000b freeRAMText
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:164    .data:00000014 abtastzeitMAXText
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:169    .data:0000001b kommandoText
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:174    .data:00000024 info1kommandos
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:179    .data:0000003c kommandos
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:196    .data:00000058 modTEXT
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:201    .data:0000005d tab
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:206    .data:0000005f text3
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:211    .data:00000063 text4
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:216    .data:00000068 textF
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:221    .data:00000071 m1
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:226    .data:00000073 m2
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:231    .data:00000075 b
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:236    .data:00000077 sollwert
-C:\Users\macie\AppData\Local\Temp/cccUUazn.s:241    .data:00000079 blinkT
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:2      *ABS*:0000003f __SREG__
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:3      *ABS*:0000003e __SP_H__
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:4      *ABS*:0000003d __SP_L__
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:5      *ABS*:00000034 __CCP__
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:21     .bss:00000000 abtastzeit
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:27     .bss:00000002 abtastzeitMAX
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:33     .bss:00000004 hAabtastzeit
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:39     .bss:00000006 OutL
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:45     .bss:00000008 OutR
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:51     .bss:0000000a OutV
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:57     .bss:0000000c OutS
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:63     .bss:0000000e OutFR
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:69     .bss:00000010 OutHL
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:75     .bss:00000012 OutHR
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:81     .bss:00000014 OutHV
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:87     .bss:00000016 OutHS
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:93     .bss:00000018 OutHFR
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:99     .bss:0000001a j
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:105    .bss:0000001b logOnOff
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:111    .bss:0000001c logCmOnOff
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:117    .bss:0000001d history
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:123    .bss:0000001e logStart
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:129    .bss:0000001f hspStart
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:135    .data:00000000 anzahl
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:142    .bss:00000020 mod
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:148    .bss:00000021 kommand
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:154    .data:00000001 welcome
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:159    .data:0000000b freeRAMText
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:164    .data:00000014 abtastzeitMAXText
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:169    .data:0000001b kommandoText
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:174    .data:00000024 info1kommandos
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:179    .data:0000003c kommandos
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:196    .data:00000058 modTEXT
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:201    .data:0000005d tab
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:206    .data:0000005f text3
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:211    .data:00000063 text4
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:216    .data:00000068 textF
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:221    .data:00000071 m1
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:226    .data:00000073 m2
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:231    .data:00000075 sollwert
+C:\Users\macie\AppData\Local\Temp/ccPPl6eg.s:236    .data:00000077 blinkT
                             *COM*:00000002 abstandlinks
                             *COM*:00000002 abstandrechts
                             *COM*:00000002 abstandvorne

@@ -94,16 +94,16 @@
  149               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 zyklus.c
-C:\Users\macie\AppData\Local\Temp/ccoUVcfb.s:2      *ABS*:0000003f __SREG__
-C:\Users\macie\AppData\Local\Temp/ccoUVcfb.s:3      *ABS*:0000003e __SP_H__
-C:\Users\macie\AppData\Local\Temp/ccoUVcfb.s:4      *ABS*:0000003d __SP_L__
-C:\Users\macie\AppData\Local\Temp/ccoUVcfb.s:5      *ABS*:00000034 __CCP__
-C:\Users\macie\AppData\Local\Temp/ccoUVcfb.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\macie\AppData\Local\Temp/ccoUVcfb.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\macie\AppData\Local\Temp/ccoUVcfb.s:18     .text:00000000 __vector_4
-C:\Users\macie\AppData\Local\Temp/ccoUVcfb.s:49     .text:0000002e init_Timer2
-C:\Users\macie\AppData\Local\Temp/ccoUVcfb.s:74     .text:00000042 init_pwm
-C:\Users\macie\AppData\Local\Temp/ccoUVcfb.s:107    .data:00000000 cnt1_top
+C:\Users\macie\AppData\Local\Temp/ccIMhfZf.s:2      *ABS*:0000003f __SREG__
+C:\Users\macie\AppData\Local\Temp/ccIMhfZf.s:3      *ABS*:0000003e __SP_H__
+C:\Users\macie\AppData\Local\Temp/ccIMhfZf.s:4      *ABS*:0000003d __SP_L__
+C:\Users\macie\AppData\Local\Temp/ccIMhfZf.s:5      *ABS*:00000034 __CCP__
+C:\Users\macie\AppData\Local\Temp/ccIMhfZf.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\macie\AppData\Local\Temp/ccIMhfZf.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\macie\AppData\Local\Temp/ccIMhfZf.s:18     .text:00000000 __vector_4
+C:\Users\macie\AppData\Local\Temp/ccIMhfZf.s:49     .text:0000002e init_Timer2
+C:\Users\macie\AppData\Local\Temp/ccIMhfZf.s:74     .text:00000042 init_pwm
+C:\Users\macie\AppData\Local\Temp/ccIMhfZf.s:107    .data:00000000 cnt1_top
 
 UNDEFINED SYMBOLS
 abtastzeit

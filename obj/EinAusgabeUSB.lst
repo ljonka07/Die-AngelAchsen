@@ -1133,11 +1133,11 @@
  1135 08a6 7727      		clr r23
  1136 08a8 67FD      		sbrc r22,7
  1137 08aa 7095      		com r23
- 1138 08ac C0E0      		ldi r28,lo8(0)
- 1139 08ae D0E0      		ldi r29,hi8(0)
+ 1138 08ac 20E0      		ldi r18,lo8(0)
+ 1139 08ae 30E0      		ldi r19,hi8(0)
  1140               	.LVL17:
- 1141 08b0 20E0      		ldi r18,lo8(0)
- 1142 08b2 30E0      		ldi r19,hi8(0)
+ 1141 08b0 C0E0      		ldi r28,lo8(0)
+ 1142 08b2 D0E0      		ldi r29,hi8(0)
  1143               	.LVL18:
  1144 08b4 4FEF      		ldi r20,lo8(-1)
  1145 08b6 00C0      		rjmp .L59
@@ -1463,18 +1463,18 @@
  1530               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 EinAusgabeUSB.c
-C:\Users\macie\AppData\Local\Temp/ccIm7s22.s:2      *ABS*:0000003f __SREG__
-C:\Users\macie\AppData\Local\Temp/ccIm7s22.s:3      *ABS*:0000003e __SP_H__
-C:\Users\macie\AppData\Local\Temp/ccIm7s22.s:4      *ABS*:0000003d __SP_L__
-C:\Users\macie\AppData\Local\Temp/ccIm7s22.s:5      *ABS*:00000034 __CCP__
-C:\Users\macie\AppData\Local\Temp/ccIm7s22.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\macie\AppData\Local\Temp/ccIm7s22.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\macie\AppData\Local\Temp/ccIm7s22.s:18     .text:00000000 pruefeWerteBereich
-C:\Users\macie\AppData\Local\Temp/ccIm7s22.s:54     .text:00000022 getServo
-C:\Users\macie\AppData\Local\Temp/ccIm7s22.s:125    .text:00000090 getFahr
-C:\Users\macie\AppData\Local\Temp/ccIm7s22.s:179    .text:000000c4 ausgabehistory
-C:\Users\macie\AppData\Local\Temp/ccIm7s22.s:604    .text:0000042a ausgabeUSB2
-C:\Users\macie\AppData\Local\Temp/ccIm7s22.s:1044   .text:00000806 eingabeUSB
+C:\Users\macie\AppData\Local\Temp/ccLnjl78.s:2      *ABS*:0000003f __SREG__
+C:\Users\macie\AppData\Local\Temp/ccLnjl78.s:3      *ABS*:0000003e __SP_H__
+C:\Users\macie\AppData\Local\Temp/ccLnjl78.s:4      *ABS*:0000003d __SP_L__
+C:\Users\macie\AppData\Local\Temp/ccLnjl78.s:5      *ABS*:00000034 __CCP__
+C:\Users\macie\AppData\Local\Temp/ccLnjl78.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\macie\AppData\Local\Temp/ccLnjl78.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\macie\AppData\Local\Temp/ccLnjl78.s:18     .text:00000000 pruefeWerteBereich
+C:\Users\macie\AppData\Local\Temp/ccLnjl78.s:54     .text:00000022 getServo
+C:\Users\macie\AppData\Local\Temp/ccLnjl78.s:125    .text:00000090 getFahr
+C:\Users\macie\AppData\Local\Temp/ccLnjl78.s:179    .text:000000c4 ausgabehistory
+C:\Users\macie\AppData\Local\Temp/ccLnjl78.s:604    .text:0000042a ausgabeUSB2
+C:\Users\macie\AppData\Local\Temp/ccLnjl78.s:1044   .text:00000806 eingabeUSB
 
 UNDEFINED SYMBOLS
 servoG

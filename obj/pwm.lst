@@ -35,12 +35,12 @@
   68               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 pwm.c
-C:\Users\macie\AppData\Local\Temp/cc5G1zu0.s:2      *ABS*:0000003f __SREG__
-C:\Users\macie\AppData\Local\Temp/cc5G1zu0.s:3      *ABS*:0000003e __SP_H__
-C:\Users\macie\AppData\Local\Temp/cc5G1zu0.s:4      *ABS*:0000003d __SP_L__
-C:\Users\macie\AppData\Local\Temp/cc5G1zu0.s:5      *ABS*:00000034 __CCP__
-C:\Users\macie\AppData\Local\Temp/cc5G1zu0.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\macie\AppData\Local\Temp/cc5G1zu0.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\macie\AppData\Local\Temp/cc5G1zu0.s:18     .text:00000000 pwm_init
+C:\Users\macie\AppData\Local\Temp/ccMAdSqQ.s:2      *ABS*:0000003f __SREG__
+C:\Users\macie\AppData\Local\Temp/ccMAdSqQ.s:3      *ABS*:0000003e __SP_H__
+C:\Users\macie\AppData\Local\Temp/ccMAdSqQ.s:4      *ABS*:0000003d __SP_L__
+C:\Users\macie\AppData\Local\Temp/ccMAdSqQ.s:5      *ABS*:00000034 __CCP__
+C:\Users\macie\AppData\Local\Temp/ccMAdSqQ.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\macie\AppData\Local\Temp/ccMAdSqQ.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\macie\AppData\Local\Temp/ccMAdSqQ.s:18     .text:00000000 pwm_init
 
 NO UNDEFINED SYMBOLS

@@ -55,11 +55,11 @@ int8_t maxFahr;	//in %
 
 //P-Regler, m = m1/m2
 int16_t m1=10;			 //float Operation vermeiden!
-int16_t m2=30;			 //Divisor Steigung
-int16_t b=-12;			 //Durchbruch durch die Y-Achse, wird nicht benötigt
+int16_t m2=20;			 //Divisor Steigung
+//int16_t b=-(m1*sollwert)/m2;	//Durchbruch durch die Y-Achse, wird nicht benötigt
 int16_t e;				 //e=Regelabweichung in cm
 int16_t y;				 //y=Stellgröße / Winkel
-int16_t sollwert = 30;	 //Sollwert 45 cm
+int16_t sollwert = 40;	 //Sollwert 45 cm
 int16_t blinkT = 200;     //Delay für blinkende LEDs bei Spannungsabfall
 
 union conv convert;

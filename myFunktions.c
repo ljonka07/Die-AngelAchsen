@@ -32,6 +32,7 @@ void fahren1(void){
 	ar = abstandrechts;
 	av = abstandvorne;
 	al = abstandlinks;
+	/*
 	if (abstandvorne > 130) 
 	{
 		fahr(25);
@@ -42,7 +43,8 @@ void fahren1(void){
 		fahr(20); 
 		servo(pReglerServoRechts(abstandrechts));
 	}
-	else if ((abstandvorne < 30) || (back == 1))
+	*/
+	if ((abstandvorne < 30) || (back == 1))
 	{ 
 		back = 1;
 		fahr(-20);
@@ -54,6 +56,11 @@ void fahren1(void){
 		{
 			servo(10);
 		}
+	}
+	else 
+	{
+		fahr(25);
+		servo(pReglerServoRechts(abstandrechts, abstandlinks, abstandvorne));
 	}
 }
 
@@ -111,19 +118,23 @@ uint16_t pReglerServoRechts(uint16_t distanceR, uint16_t distanceL, uint16_t dis
 		
 	//bestimmen der Regelabweichung
 	//z.B. Sollwert gerade (35cm),	20cm volllinks, 50cm vollrechts
-	if (distanceV > 100) {
-		if (distanceL > 100)
+	if (distanceV > 130) {
+		if (distanceR < 80)
 		{
-			serv = (distanceR*m1)/m2 + b;
+			serv = (distanceR*m1)/m2 - 19;
 		} 
-		else if (distanceR > 100)
+		else if (distanceL < 80)
 		{
-			serv =  (distanceL*m1)/m2 + b;
+			serv = (distanceL*m1)/m2 - 19;
+		}
+		else
+		{
+			serv = 4;
 		}
 	} 
 	else 
 	{
-		if (distanceL > distanceR) 
+		if (distanceL > (distanceR*4)/3) 
 		{
 			serv = -10;
 		} 
@@ -132,7 +143,7 @@ uint16_t pReglerServoRechts(uint16_t distanceR, uint16_t distanceL, uint16_t dis
 			serv = 10;
 		}
 	}
-	return serv
+	return serv;
 }
 
 
@@ -181,5 +192,3 @@ void ledSchalterTest(void){
 		ledPC3(0);
 	};
 }
-
-

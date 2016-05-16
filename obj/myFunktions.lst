@@ -213,337 +213,392 @@
  233               	.LVL20:
  234               	/* prologue: function */
  235               	/* frame size = 0 */
- 236               	.LM22:
- 237 00f4 2091 0000 		lds r18,m1
- 238 00f8 3091 0000 		lds r19,(m1)+1
- 239 00fc 6091 0000 		lds r22,m2
- 240 0100 7091 0000 		lds r23,(m2)+1
- 241 0104 AC01      		movw r20,r24
- 242 0106 429F      		mul r20,r18
- 243 0108 C001      		movw r24,r0
- 244 010a 439F      		mul r20,r19
- 245 010c 900D      		add r25,r0
- 246 010e 529F      		mul r21,r18
- 247 0110 900D      		add r25,r0
- 248 0112 1124      		clr r1
- 249               	.LVL21:
- 250 0114 0E94 0000 		call __udivmodhi4
- 251 0118 8091 0000 		lds r24,b
- 252 011c 9091 0000 		lds r25,(b)+1
- 253 0120 680F      		add r22,r24
- 254 0122 791F      		adc r23,r25
- 255               	.LM23:
- 256 0124 CB01      		movw r24,r22
- 257               	/* epilogue start */
- 258 0126 0895      		ret
- 259               	.LFE9:
- 261               	.global	ledSchalterTest
- 263               	ledSchalterTest:
- 264               	.LFB11:
- 265               	.LM24:
- 266 0128 CF93      		push r28
- 267 012a DF93      		push r29
- 268               	/* prologue: function */
- 269               	/* frame size = 0 */
- 270               	.LM25:
- 271 012c 0E94 0000 		call s1
- 272 0130 8130      		cpi r24,lo8(1)
- 273 0132 01F4      		brne .L20
- 274 0134 C1E0      		ldi r28,lo8(1)
- 275 0136 D0E0      		ldi r29,hi8(1)
- 276               	.LVL22:
- 277               	.L21:
- 278               	.LBB2:
- 279               	.LM26:
- 280 0138 81E0      		ldi r24,lo8(1)
- 281 013a 0E94 0000 		call ledPB1
- 282               	.LM27:
- 283 013e 81E0      		ldi r24,lo8(1)
- 284 0140 0E94 0000 		call ledPB2
- 285               	.LM28:
- 286 0144 81E0      		ldi r24,lo8(1)
- 287 0146 0E94 0000 		call ledPC2
- 288               	.LM29:
- 289 014a 81E0      		ldi r24,lo8(1)
- 290 014c 0E94 0000 		call ledPC3
- 291               	.LM30:
- 292 0150 84E6      		ldi r24,lo8(100)
- 293 0152 90E0      		ldi r25,hi8(100)
- 294 0154 0E94 0000 		call warte_ms
- 295               	.LM31:
- 296 0158 80E0      		ldi r24,lo8(0)
- 297 015a 0E94 0000 		call ledPB1
- 298               	.LM32:
- 299 015e 80E0      		ldi r24,lo8(0)
- 300 0160 0E94 0000 		call ledPB2
- 301               	.LM33:
- 302 0164 80E0      		ldi r24,lo8(0)
- 303 0166 0E94 0000 		call ledPC2
- 304               	.LM34:
- 305 016a 80E0      		ldi r24,lo8(0)
- 306 016c 0E94 0000 		call ledPC3
- 307               	.LM35:
- 308 0170 84E6      		ldi r24,lo8(100)
- 309 0172 90E0      		ldi r25,hi8(100)
- 310 0174 0E94 0000 		call warte_ms
- 311               	.LM36:
- 312 0178 2196      		adiw r28,1
- 313 017a CB30      		cpi r28,11
- 314 017c D105      		cpc r29,__zero_reg__
- 315 017e 01F4      		brne .L21
- 316 0180 00C0      		rjmp .L23
- 317               	.LVL23:
- 318               	.L20:
- 319               	.LBE2:
- 320               	.LM37:
- 321 0182 80E0      		ldi r24,lo8(0)
- 322 0184 0E94 0000 		call ledPB1
- 323               	.LM38:
- 324 0188 80E0      		ldi r24,lo8(0)
- 325 018a 0E94 0000 		call ledPB2
- 326               	.LM39:
- 327 018e 80E0      		ldi r24,lo8(0)
- 328 0190 0E94 0000 		call ledPC2
- 329               	.LM40:
- 330 0194 80E0      		ldi r24,lo8(0)
- 331 0196 0E94 0000 		call ledPC3
- 332               	.LVL24:
- 333               	.L23:
- 334               	/* epilogue start */
- 335               	.LM41:
- 336 019a DF91      		pop r29
- 337 019c CF91      		pop r28
- 338               	.LVL25:
- 339 019e 0895      		ret
- 340               	.LFE11:
- 342               	.global	akkuSpannungPruefen
- 344               	akkuSpannungPruefen:
- 345               	.LFB10:
- 346               	.LM42:
- 347               	.LVL26:
- 348 01a0 0F93      		push r16
- 349 01a2 1F93      		push r17
- 350               	/* prologue: function */
- 351               	/* frame size = 0 */
- 352 01a4 8C01      		movw r16,r24
- 353               	.LM43:
- 354 01a6 87E0      		ldi r24,lo8(7)
- 355               	.LVL27:
- 356 01a8 0E94 0000 		call adc
- 357 01ac 9093 0000 		sts (analogwertAkku)+1,r25
- 358 01b0 8093 0000 		sts analogwertAkku,r24
- 359               	.LVL28:
- 360               	.LM44:
- 361 01b4 8017      		cp r24,r16
- 362 01b6 9107      		cpc r25,r17
- 363 01b8 00F4      		brsh .L27
- 364               	.LM45:
- 365 01ba 81E0      		ldi r24,lo8(1)
- 366               	.LVL29:
- 367 01bc 0E94 0000 		call ledPB1
- 368               	.LM46:
- 369 01c0 81E0      		ldi r24,lo8(1)
- 370 01c2 0E94 0000 		call ledPB2
- 371               	.LM47:
- 372 01c6 81E0      		ldi r24,lo8(1)
- 373 01c8 0E94 0000 		call ledPC2
- 374               	.LM48:
- 375 01cc 81E0      		ldi r24,lo8(1)
- 376 01ce 0E94 0000 		call ledPC3
- 377               	.LM49:
- 378 01d2 8091 0000 		lds r24,blinkT
- 379 01d6 9091 0000 		lds r25,(blinkT)+1
- 380 01da 62E0      		ldi r22,lo8(2)
- 381 01dc 70E0      		ldi r23,hi8(2)
- 382 01de 0E94 0000 		call __divmodhi4
- 383 01e2 CB01      		movw r24,r22
- 384 01e4 0E94 0000 		call warte_ms
- 385               	.LM50:
- 386 01e8 80E0      		ldi r24,lo8(0)
- 387 01ea 0E94 0000 		call ledPB1
- 388               	.LM51:
- 389 01ee 80E0      		ldi r24,lo8(0)
- 390 01f0 0E94 0000 		call ledPB2
- 391               	.LM52:
- 392 01f4 80E0      		ldi r24,lo8(0)
- 393 01f6 0E94 0000 		call ledPC2
- 394               	.LM53:
- 395 01fa 80E0      		ldi r24,lo8(0)
- 396 01fc 0E94 0000 		call ledPC3
- 397               	.LM54:
- 398 0200 8091 0000 		lds r24,blinkT
- 399 0204 9091 0000 		lds r25,(blinkT)+1
- 400 0208 62E0      		ldi r22,lo8(2)
- 401 020a 70E0      		ldi r23,hi8(2)
- 402 020c 0E94 0000 		call __divmodhi4
- 403 0210 CB01      		movw r24,r22
- 404 0212 0E94 0000 		call warte_ms
- 405               	.LVL30:
- 406               	.L27:
- 407               	/* epilogue start */
- 408               	.LM55:
- 409 0216 1F91      		pop r17
- 410 0218 0F91      		pop r16
- 411               	.LVL31:
- 412 021a 0895      		ret
- 413               	.LFE10:
- 415               	.global	fahren1
- 417               	fahren1:
- 418               	.LFB2:
- 419               	.LM56:
- 420               	/* prologue: function */
- 421               	/* frame size = 0 */
- 422               	.LM57:
- 423 021c 2091 0000 		lds r18,abstandvorne
- 424 0220 3091 0000 		lds r19,(abstandvorne)+1
- 425 0224 2333      		cpi r18,51
- 426 0226 3105      		cpc r19,__zero_reg__
- 427 0228 00F0      		brlo .L29
- 428               	.LM58:
- 429 022a 1092 0000 		sts (back)+1,__zero_reg__
- 430 022e 1092 0000 		sts back,__zero_reg__
- 431               	.L29:
- 432               	.LM59:
- 433 0232 8091 0000 		lds r24,abstandrechts
- 434 0236 9091 0000 		lds r25,(abstandrechts)+1
- 435 023a 9093 0000 		sts (ar)+1,r25
- 436 023e 8093 0000 		sts ar,r24
- 437               	.LM60:
- 438 0242 3093 0000 		sts (av)+1,r19
- 439 0246 2093 0000 		sts av,r18
- 440               	.LM61:
- 441 024a 8091 0000 		lds r24,abstandlinks
- 442 024e 9091 0000 		lds r25,(abstandlinks)+1
- 443 0252 9093 0000 		sts (al)+1,r25
- 444 0256 8093 0000 		sts al,r24
- 445               	.LM62:
- 446 025a 2338      		cpi r18,131
- 447 025c 3105      		cpc r19,__zero_reg__
- 448 025e 00F0      		brlo .L30
- 449               	.LM63:
- 450 0260 89E1      		ldi r24,lo8(25)
- 451 0262 90E0      		ldi r25,hi8(25)
- 452 0264 0E94 0000 		call fahr
- 453               	.LM64:
- 454 0268 8091 0000 		lds r24,abstandrechts
- 455 026c 9091 0000 		lds r25,(abstandrechts)+1
- 456 0270 0E94 0000 		call pReglerServoRechts
- 457 0274 00C0      		rjmp .L37
- 458               	.L30:
- 459               	.LM65:
- 460 0276 2238      		cpi r18,130
- 461 0278 3105      		cpc r19,__zero_reg__
- 462 027a 01F0      		breq .L32
- 463 027c 8091 0000 		lds r24,back
- 464 0280 9091 0000 		lds r25,(back)+1
- 465 0284 892B      		or r24,r25
- 466 0286 01F4      		brne .L33
- 467 0288 2F31      		cpi r18,31
- 468 028a 3105      		cpc r19,__zero_reg__
- 469 028c 00F0      		brlo .L33
- 470               	.LM66:
- 471 028e 84E1      		ldi r24,lo8(20)
- 472 0290 90E0      		ldi r25,hi8(20)
- 473 0292 0E94 0000 		call fahr
- 474               	.LM67:
- 475 0296 8091 0000 		lds r24,abstandrechts
- 476 029a 9091 0000 		lds r25,(abstandrechts)+1
- 477 029e 0E94 0000 		call pReglerServoRechts
- 478 02a2 00C0      		rjmp .L37
- 479               	.L33:
- 480               	.LM68:
- 481 02a4 2E31      		cpi r18,30
- 482 02a6 3105      		cpc r19,__zero_reg__
- 483 02a8 00F0      		brlo .L34
- 484               	.L32:
- 485 02aa 8091 0000 		lds r24,back
- 486 02ae 9091 0000 		lds r25,(back)+1
- 487 02b2 0197      		sbiw r24,1
- 488 02b4 01F4      		brne .L36
- 489               	.L34:
- 490               	.LM69:
- 491 02b6 81E0      		ldi r24,lo8(1)
- 492 02b8 90E0      		ldi r25,hi8(1)
- 493 02ba 9093 0000 		sts (back)+1,r25
- 494 02be 8093 0000 		sts back,r24
- 495               	.LM70:
- 496 02c2 8CEE      		ldi r24,lo8(-20)
- 497 02c4 9FEF      		ldi r25,hi8(-20)
- 498 02c6 0E94 0000 		call fahr
- 499               	.LM71:
- 500 02ca 2091 0000 		lds r18,ar
- 501 02ce 3091 0000 		lds r19,(ar)+1
- 502 02d2 8091 0000 		lds r24,al
- 503 02d6 9091 0000 		lds r25,(al)+1
- 504 02da 8217      		cp r24,r18
- 505 02dc 9307      		cpc r25,r19
- 506 02de 04F4      		brge .L35
- 507               	.LM72:
- 508 02e0 86EF      		ldi r24,lo8(-10)
- 509 02e2 9FEF      		ldi r25,hi8(-10)
- 510               	.L37:
- 511 02e4 0E94 0000 		call servo
- 512 02e8 0895      		ret
- 513               	.L35:
- 514               	.LM73:
- 515 02ea 8AE0      		ldi r24,lo8(10)
- 516 02ec 90E0      		ldi r25,hi8(10)
- 517 02ee 0E94 0000 		call servo
- 518               	.L36:
- 519 02f2 0895      		ret
- 520               	.LFE2:
- 522               	.global	histerese
- 523               	.global	histerese
- 524               		.section .bss
- 527               	histerese:
- 528 0000 0000      		.skip 2,0
- 529               	.global	ar
- 530               	.global	ar
- 533               	ar:
- 534 0002 0000      		.skip 2,0
- 535               	.global	av
- 536               	.global	av
- 539               	av:
- 540 0004 0000      		.skip 2,0
- 541               	.global	al
- 542               	.global	al
- 545               	al:
- 546 0006 0000      		.skip 2,0
- 547               	.global	back
- 548               	.global	back
- 551               	back:
- 552 0008 0000      		.skip 2,0
- 649               	.Letext0:
+ 236 00f4 9C01      		movw r18,r24
+ 237 00f6 FB01      		movw r30,r22
+ 238               	.LM22:
+ 239 00f8 4338      		cpi r20,131
+ 240 00fa 5105      		cpc r21,__zero_reg__
+ 241 00fc 00F0      		brlo .L18
+ 242               	.LVL21:
+ 243               	.LM23:
+ 244 00fe 8035      		cpi r24,80
+ 245 0100 9105      		cpc r25,__zero_reg__
+ 246 0102 00F4      		brsh .L19
+ 247               	.LVL22:
+ 248               	.LM24:
+ 249 0104 8091 0000 		lds r24,m1
+ 250 0108 9091 0000 		lds r25,(m1)+1
+ 251               	.LVL23:
+ 252 010c 6091 0000 		lds r22,m2
+ 253 0110 7091 0000 		lds r23,(m2)+1
+ 254 0114 AC01      		movw r20,r24
+ 255               	.LVL24:
+ 256 0116 249F      		mul r18,r20
+ 257 0118 C001      		movw r24,r0
+ 258 011a 259F      		mul r18,r21
+ 259 011c 900D      		add r25,r0
+ 260 011e 349F      		mul r19,r20
+ 261 0120 900D      		add r25,r0
+ 262 0122 1124      		clr r1
+ 263 0124 00C0      		rjmp .L24
+ 264               	.LVL25:
+ 265               	.L19:
+ 266               	.LM25:
+ 267 0126 6035      		cpi r22,80
+ 268 0128 7105      		cpc r23,__zero_reg__
+ 269 012a 00F4      		brsh .L21
+ 270               	.LVL26:
+ 271               	.LM26:
+ 272 012c 8091 0000 		lds r24,m1
+ 273 0130 9091 0000 		lds r25,(m1)+1
+ 274               	.LVL27:
+ 275 0134 6091 0000 		lds r22,m2
+ 276 0138 7091 0000 		lds r23,(m2)+1
+ 277               	.LVL28:
+ 278 013c 9C01      		movw r18,r24
+ 279               	.LVL29:
+ 280 013e E29F      		mul r30,r18
+ 281 0140 C001      		movw r24,r0
+ 282 0142 E39F      		mul r30,r19
+ 283 0144 900D      		add r25,r0
+ 284 0146 F29F      		mul r31,r18
+ 285 0148 900D      		add r25,r0
+ 286 014a 1124      		clr r1
+ 287               	.LVL30:
+ 288               	.L24:
+ 289 014c 0E94 0000 		call __udivmodhi4
+ 290 0150 6351      		subi r22,lo8(-(-19))
+ 291 0152 7040      		sbci r23,hi8(-(-19))
+ 292 0154 7093 0000 		sts (serv)+1,r23
+ 293 0158 6093 0000 		sts serv,r22
+ 294 015c 00C0      		rjmp .L20
+ 295               	.LVL31:
+ 296               	.L21:
+ 297               	.LM27:
+ 298 015e 84E0      		ldi r24,lo8(4)
+ 299 0160 90E0      		ldi r25,hi8(4)
+ 300               	.LVL32:
+ 301 0162 00C0      		rjmp .L25
+ 302               	.LVL33:
+ 303               	.L18:
+ 304               	.LM28:
+ 305 0164 880F      		lsl r24
+ 306 0166 991F      		rol r25
+ 307 0168 880F      		lsl r24
+ 308 016a 991F      		rol r25
+ 309               	.LVL34:
+ 310 016c 63E0      		ldi r22,lo8(3)
+ 311 016e 70E0      		ldi r23,hi8(3)
+ 312 0170 0E94 0000 		call __udivmodhi4
+ 313 0174 6E17      		cp r22,r30
+ 314 0176 7F07      		cpc r23,r31
+ 315 0178 00F4      		brsh .L22
+ 316               	.LM29:
+ 317 017a 86EF      		ldi r24,lo8(-10)
+ 318 017c 9FEF      		ldi r25,hi8(-10)
+ 319 017e 00C0      		rjmp .L25
+ 320               	.L22:
+ 321               	.LM30:
+ 322 0180 8AE0      		ldi r24,lo8(10)
+ 323 0182 90E0      		ldi r25,hi8(10)
+ 324               	.LVL35:
+ 325               	.L25:
+ 326 0184 9093 0000 		sts (serv)+1,r25
+ 327 0188 8093 0000 		sts serv,r24
+ 328               	.L20:
+ 329               	.LM31:
+ 330 018c 8091 0000 		lds r24,serv
+ 331 0190 9091 0000 		lds r25,serv+1
+ 332               	/* epilogue start */
+ 333 0194 0895      		ret
+ 334               	.LFE9:
+ 336               	.global	ledSchalterTest
+ 338               	ledSchalterTest:
+ 339               	.LFB11:
+ 340               	.LM32:
+ 341 0196 CF93      		push r28
+ 342 0198 DF93      		push r29
+ 343               	/* prologue: function */
+ 344               	/* frame size = 0 */
+ 345               	.LM33:
+ 346 019a 0E94 0000 		call s1
+ 347 019e 8130      		cpi r24,lo8(1)
+ 348 01a0 01F4      		brne .L27
+ 349 01a2 C1E0      		ldi r28,lo8(1)
+ 350 01a4 D0E0      		ldi r29,hi8(1)
+ 351               	.LVL36:
+ 352               	.L28:
+ 353               	.LBB2:
+ 354               	.LM34:
+ 355 01a6 81E0      		ldi r24,lo8(1)
+ 356 01a8 0E94 0000 		call ledPB1
+ 357               	.LM35:
+ 358 01ac 81E0      		ldi r24,lo8(1)
+ 359 01ae 0E94 0000 		call ledPB2
+ 360               	.LM36:
+ 361 01b2 81E0      		ldi r24,lo8(1)
+ 362 01b4 0E94 0000 		call ledPC2
+ 363               	.LM37:
+ 364 01b8 81E0      		ldi r24,lo8(1)
+ 365 01ba 0E94 0000 		call ledPC3
+ 366               	.LM38:
+ 367 01be 84E6      		ldi r24,lo8(100)
+ 368 01c0 90E0      		ldi r25,hi8(100)
+ 369 01c2 0E94 0000 		call warte_ms
+ 370               	.LM39:
+ 371 01c6 80E0      		ldi r24,lo8(0)
+ 372 01c8 0E94 0000 		call ledPB1
+ 373               	.LM40:
+ 374 01cc 80E0      		ldi r24,lo8(0)
+ 375 01ce 0E94 0000 		call ledPB2
+ 376               	.LM41:
+ 377 01d2 80E0      		ldi r24,lo8(0)
+ 378 01d4 0E94 0000 		call ledPC2
+ 379               	.LM42:
+ 380 01d8 80E0      		ldi r24,lo8(0)
+ 381 01da 0E94 0000 		call ledPC3
+ 382               	.LM43:
+ 383 01de 84E6      		ldi r24,lo8(100)
+ 384 01e0 90E0      		ldi r25,hi8(100)
+ 385 01e2 0E94 0000 		call warte_ms
+ 386               	.LM44:
+ 387 01e6 2196      		adiw r28,1
+ 388 01e8 CB30      		cpi r28,11
+ 389 01ea D105      		cpc r29,__zero_reg__
+ 390 01ec 01F4      		brne .L28
+ 391 01ee 00C0      		rjmp .L30
+ 392               	.LVL37:
+ 393               	.L27:
+ 394               	.LBE2:
+ 395               	.LM45:
+ 396 01f0 80E0      		ldi r24,lo8(0)
+ 397 01f2 0E94 0000 		call ledPB1
+ 398               	.LM46:
+ 399 01f6 80E0      		ldi r24,lo8(0)
+ 400 01f8 0E94 0000 		call ledPB2
+ 401               	.LM47:
+ 402 01fc 80E0      		ldi r24,lo8(0)
+ 403 01fe 0E94 0000 		call ledPC2
+ 404               	.LM48:
+ 405 0202 80E0      		ldi r24,lo8(0)
+ 406 0204 0E94 0000 		call ledPC3
+ 407               	.LVL38:
+ 408               	.L30:
+ 409               	/* epilogue start */
+ 410               	.LM49:
+ 411 0208 DF91      		pop r29
+ 412 020a CF91      		pop r28
+ 413               	.LVL39:
+ 414 020c 0895      		ret
+ 415               	.LFE11:
+ 417               	.global	akkuSpannungPruefen
+ 419               	akkuSpannungPruefen:
+ 420               	.LFB10:
+ 421               	.LM50:
+ 422               	.LVL40:
+ 423 020e 0F93      		push r16
+ 424 0210 1F93      		push r17
+ 425               	/* prologue: function */
+ 426               	/* frame size = 0 */
+ 427 0212 8C01      		movw r16,r24
+ 428               	.LM51:
+ 429 0214 87E0      		ldi r24,lo8(7)
+ 430               	.LVL41:
+ 431 0216 0E94 0000 		call adc
+ 432 021a 9093 0000 		sts (analogwertAkku)+1,r25
+ 433 021e 8093 0000 		sts analogwertAkku,r24
+ 434               	.LVL42:
+ 435               	.LM52:
+ 436 0222 8017      		cp r24,r16
+ 437 0224 9107      		cpc r25,r17
+ 438 0226 00F4      		brsh .L34
+ 439               	.LM53:
+ 440 0228 81E0      		ldi r24,lo8(1)
+ 441               	.LVL43:
+ 442 022a 0E94 0000 		call ledPB1
+ 443               	.LM54:
+ 444 022e 81E0      		ldi r24,lo8(1)
+ 445 0230 0E94 0000 		call ledPB2
+ 446               	.LM55:
+ 447 0234 81E0      		ldi r24,lo8(1)
+ 448 0236 0E94 0000 		call ledPC2
+ 449               	.LM56:
+ 450 023a 81E0      		ldi r24,lo8(1)
+ 451 023c 0E94 0000 		call ledPC3
+ 452               	.LM57:
+ 453 0240 8091 0000 		lds r24,blinkT
+ 454 0244 9091 0000 		lds r25,(blinkT)+1
+ 455 0248 62E0      		ldi r22,lo8(2)
+ 456 024a 70E0      		ldi r23,hi8(2)
+ 457 024c 0E94 0000 		call __divmodhi4
+ 458 0250 CB01      		movw r24,r22
+ 459 0252 0E94 0000 		call warte_ms
+ 460               	.LM58:
+ 461 0256 80E0      		ldi r24,lo8(0)
+ 462 0258 0E94 0000 		call ledPB1
+ 463               	.LM59:
+ 464 025c 80E0      		ldi r24,lo8(0)
+ 465 025e 0E94 0000 		call ledPB2
+ 466               	.LM60:
+ 467 0262 80E0      		ldi r24,lo8(0)
+ 468 0264 0E94 0000 		call ledPC2
+ 469               	.LM61:
+ 470 0268 80E0      		ldi r24,lo8(0)
+ 471 026a 0E94 0000 		call ledPC3
+ 472               	.LM62:
+ 473 026e 8091 0000 		lds r24,blinkT
+ 474 0272 9091 0000 		lds r25,(blinkT)+1
+ 475 0276 62E0      		ldi r22,lo8(2)
+ 476 0278 70E0      		ldi r23,hi8(2)
+ 477 027a 0E94 0000 		call __divmodhi4
+ 478 027e CB01      		movw r24,r22
+ 479 0280 0E94 0000 		call warte_ms
+ 480               	.LVL44:
+ 481               	.L34:
+ 482               	/* epilogue start */
+ 483               	.LM63:
+ 484 0284 1F91      		pop r17
+ 485 0286 0F91      		pop r16
+ 486               	.LVL45:
+ 487 0288 0895      		ret
+ 488               	.LFE10:
+ 490               	.global	fahren1
+ 492               	fahren1:
+ 493               	.LFB2:
+ 494               	.LM64:
+ 495               	/* prologue: function */
+ 496               	/* frame size = 0 */
+ 497               	.LM65:
+ 498 028a 2091 0000 		lds r18,abstandvorne
+ 499 028e 3091 0000 		lds r19,(abstandvorne)+1
+ 500 0292 2333      		cpi r18,51
+ 501 0294 3105      		cpc r19,__zero_reg__
+ 502 0296 00F0      		brlo .L36
+ 503               	.LM66:
+ 504 0298 1092 0000 		sts (back)+1,__zero_reg__
+ 505 029c 1092 0000 		sts back,__zero_reg__
+ 506               	.L36:
+ 507               	.LM67:
+ 508 02a0 8091 0000 		lds r24,abstandrechts
+ 509 02a4 9091 0000 		lds r25,(abstandrechts)+1
+ 510 02a8 9093 0000 		sts (ar)+1,r25
+ 511 02ac 8093 0000 		sts ar,r24
+ 512               	.LM68:
+ 513 02b0 3093 0000 		sts (av)+1,r19
+ 514 02b4 2093 0000 		sts av,r18
+ 515               	.LM69:
+ 516 02b8 8091 0000 		lds r24,abstandlinks
+ 517 02bc 9091 0000 		lds r25,(abstandlinks)+1
+ 518 02c0 9093 0000 		sts (al)+1,r25
+ 519 02c4 8093 0000 		sts al,r24
+ 520               	.LM70:
+ 521 02c8 2E31      		cpi r18,30
+ 522 02ca 3105      		cpc r19,__zero_reg__
+ 523 02cc 00F0      		brlo .L37
+ 524 02ce 8091 0000 		lds r24,back
+ 525 02d2 9091 0000 		lds r25,(back)+1
+ 526 02d6 0197      		sbiw r24,1
+ 527 02d8 01F4      		brne .L38
+ 528               	.L37:
+ 529               	.LM71:
+ 530 02da 81E0      		ldi r24,lo8(1)
+ 531 02dc 90E0      		ldi r25,hi8(1)
+ 532 02de 9093 0000 		sts (back)+1,r25
+ 533 02e2 8093 0000 		sts back,r24
+ 534               	.LM72:
+ 535 02e6 8CEE      		ldi r24,lo8(-20)
+ 536 02e8 9FEF      		ldi r25,hi8(-20)
+ 537 02ea 0E94 0000 		call fahr
+ 538               	.LM73:
+ 539 02ee 2091 0000 		lds r18,ar
+ 540 02f2 3091 0000 		lds r19,(ar)+1
+ 541 02f6 8091 0000 		lds r24,al
+ 542 02fa 9091 0000 		lds r25,(al)+1
+ 543 02fe 8217      		cp r24,r18
+ 544 0300 9307      		cpc r25,r19
+ 545 0302 04F4      		brge .L39
+ 546               	.LM74:
+ 547 0304 86EF      		ldi r24,lo8(-10)
+ 548 0306 9FEF      		ldi r25,hi8(-10)
+ 549 0308 00C0      		rjmp .L42
+ 550               	.L39:
+ 551               	.LM75:
+ 552 030a 8AE0      		ldi r24,lo8(10)
+ 553 030c 90E0      		ldi r25,hi8(10)
+ 554 030e 00C0      		rjmp .L42
+ 555               	.L38:
+ 556               	.LM76:
+ 557 0310 89E1      		ldi r24,lo8(25)
+ 558 0312 90E0      		ldi r25,hi8(25)
+ 559 0314 0E94 0000 		call fahr
+ 560               	.LM77:
+ 561 0318 6091 0000 		lds r22,abstandlinks
+ 562 031c 7091 0000 		lds r23,(abstandlinks)+1
+ 563 0320 4091 0000 		lds r20,abstandvorne
+ 564 0324 5091 0000 		lds r21,(abstandvorne)+1
+ 565 0328 8091 0000 		lds r24,abstandrechts
+ 566 032c 9091 0000 		lds r25,(abstandrechts)+1
+ 567 0330 0E94 0000 		call pReglerServoRechts
+ 568               	.L42:
+ 569 0334 0E94 0000 		call servo
+ 570 0338 0895      		ret
+ 571               	.LFE2:
+ 573               	.global	histerese
+ 574               	.global	histerese
+ 575               		.section .bss
+ 578               	histerese:
+ 579 0000 0000      		.skip 2,0
+ 580               	.global	ar
+ 581               	.global	ar
+ 584               	ar:
+ 585 0002 0000      		.skip 2,0
+ 586               	.global	av
+ 587               	.global	av
+ 590               	av:
+ 591 0004 0000      		.skip 2,0
+ 592               	.global	al
+ 593               	.global	al
+ 596               	al:
+ 597 0006 0000      		.skip 2,0
+ 598               	.global	back
+ 599               	.global	back
+ 602               	back:
+ 603 0008 0000      		.skip 2,0
+ 604               	.global	serv
+ 605               	.global	serv
+ 608               	serv:
+ 609 000a 0000      		.skip 2,0
+ 706               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 myFunktions.c
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:2      *ABS*:0000003f __SREG__
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:3      *ABS*:0000003e __SP_H__
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:4      *ABS*:0000003d __SP_L__
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:5      *ABS*:00000034 __CCP__
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:18     .text:00000000 fahren2
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:30     .text:00000002 fahren3
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:42     .text:00000004 linearisierungAD_links
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:89     .text:00000040 linearisierungAD_rechts
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:136    .text:0000007c linearisierungAD_vorne
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:183    .text:000000b8 linearisierungAD
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:230    .text:000000f4 pReglerServoRechts
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:263    .text:00000128 ledSchalterTest
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:344    .text:000001a0 akkuSpannungPruefen
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:417    .text:0000021c fahren1
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:551    .bss:00000008 back
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:533    .bss:00000002 ar
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:539    .bss:00000004 av
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:545    .bss:00000006 al
-C:\Users\macie\AppData\Local\Temp/ccBL4M6U.s:527    .bss:00000000 histerese
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:2      *ABS*:0000003f __SREG__
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:3      *ABS*:0000003e __SP_H__
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:4      *ABS*:0000003d __SP_L__
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:5      *ABS*:00000034 __CCP__
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:18     .text:00000000 fahren2
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:30     .text:00000002 fahren3
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:42     .text:00000004 linearisierungAD_links
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:89     .text:00000040 linearisierungAD_rechts
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:136    .text:0000007c linearisierungAD_vorne
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:183    .text:000000b8 linearisierungAD
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:230    .text:000000f4 pReglerServoRechts
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:608    .bss:0000000a serv
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:338    .text:00000196 ledSchalterTest
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:419    .text:0000020e akkuSpannungPruefen
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:492    .text:0000028a fahren1
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:602    .bss:00000008 back
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:584    .bss:00000002 ar
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:590    .bss:00000004 av
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:596    .bss:00000006 al
+C:\Users\macie\AppData\Local\Temp/ccnxaB1Y.s:578    .bss:00000000 histerese
 
 UNDEFINED SYMBOLS
 __udivmodhi4
 __divmodhi4
 m1
 m2
-b
 s1
 ledPB1
 ledPB2
