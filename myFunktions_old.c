@@ -99,7 +99,7 @@ void fahren2(void){
 	}
 	else 
 	{
-		fahr(26);
+		fahr(20);
 		servo(pReglerServoRechts(ar, al, av));
 	}
 }
@@ -153,30 +153,29 @@ uint16_t pReglerServoRechts(uint16_t dR, uint16_t dL, uint16_t dV)
 		
 	//bestimmen der Regelabweichung
 	//z.B. Sollwert gerade (35cm),	20cm volllinks, 50cm vollrechts
-	if (((dV < 140) || (ar > 140)) || (al > 140)) {
-		if (dL > dR) 
+	if (dV > 130) {
+		if (dR < 80)
+		{
+			serv = (dR*m1)/m2 - 17;
+		} 
+		else if (dL < 80)
+		{
+			serv = (dL*m1)/m2 - 17;
+		}
+		else
+		{
+			serv = 8;
+		}
+	} 
+	else 
+	{
+		if (dL > (dR*4)/3) 
 		{
 			serv = -10;
 		} 
 		else 
 		{
 			serv = 10;
-		}
-		
-	} 
-	else 
-	{
-		if (dR < 70)
-		{
-			serv = (dR*m1)/16 - 20;
-		} 
-		else if (dL < 70)
-		{
-			serv = (dL*m1)/16 - 20;
-		}
-		else
-		{
-			serv = 5;
 		}
 	}
 	return serv;

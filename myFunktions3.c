@@ -54,8 +54,9 @@ void fahren1(void){
 	else 
 	{
 		fahr(30);
-		if (av < 150) 
+		if (av < 200) 
 		{
+			fahr(18);
 			if (ar > al)
 			{
 				servo(10);
@@ -65,26 +66,30 @@ void fahren1(void){
 				servo(-10);
 			}
 		}
-		else if (al > 50)
+		else if (al > 60)
 		{ 
+			servo(((ar)*m1)/m2 - 19);
+		}
+		else if (ar > 60)
+		{
 			servo(((ar)*m1)/m2 - 19);
 		}
 		else
 		{
-			servo(((ar - al)*m1)/m2);
+			servo(((ar - al)*10)/30);
 		}
 	}
 }
 
 void fahren2(void){
-	if (abstandvorne > 55) 
+	if (abstandvorne > 50) 
 	{ 
 		back = 0;
 	}
 	ar = abstandrechts;
 	av = abstandvorne;
 	al = abstandlinks;
-	if ((abstandvorne < 50) || (back == 1))
+	if ((abstandvorne < 30) || (back == 1))
 	{ 
 		back = 1;
 		fahr(-20);
@@ -99,10 +104,11 @@ void fahren2(void){
 	}
 	else 
 	{
-		fahr(26);
+		fahr(20);
 		servo(pReglerServoRechts(ar, al, av));
 	}
 }
+
 void fahren3(void){
 }
 
@@ -153,30 +159,29 @@ uint16_t pReglerServoRechts(uint16_t dR, uint16_t dL, uint16_t dV)
 		
 	//bestimmen der Regelabweichung
 	//z.B. Sollwert gerade (35cm),	20cm volllinks, 50cm vollrechts
-	if (((dV < 140) || (ar > 140)) || (al > 140)) {
-		if (dL > dR) 
+	if (dV > 111) {
+		if (dR < 80)
+		{
+			serv = (dR*m1)/m2 - 17;
+		} 
+		else if (dL < 80)
+		{
+			serv = (dL*m1)/m2 - 17;
+		}
+		else
+		{
+			serv = 8;
+		}
+	} 
+	else 
+	{
+		if (dL > (dR*4)/3) 
 		{
 			serv = -10;
 		} 
 		else 
 		{
 			serv = 10;
-		}
-		
-	} 
-	else 
-	{
-		if (dR < 70)
-		{
-			serv = (dR*m1)/16 - 20;
-		} 
-		else if (dL < 70)
-		{
-			serv = (dL*m1)/16 - 20;
-		}
-		else
-		{
-			serv = 5;
 		}
 	}
 	return serv;

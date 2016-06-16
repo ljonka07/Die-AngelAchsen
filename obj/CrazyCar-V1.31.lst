@@ -20,8 +20,8 @@
   28 0008 93E0      		ldi r25,hi8(864)
   29 000a 6CED      		ldi r22,lo8(732)
   30 000c 72E0      		ldi r23,hi8(732)
-  31 000e 48E5      		ldi r20,lo8(600)
-  32 0010 52E0      		ldi r21,hi8(600)
+  31 000e 4CE6      		ldi r20,lo8(620)
+  32 0010 52E0      		ldi r21,hi8(620)
   33 0012 0E94 0000 		call initServo
   34               	.LM4:
   35 0016 84E6      		ldi r24,lo8(100)
@@ -250,13 +250,13 @@
  283               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 CrazyCar-V1.31.c
-C:\Users\macie\AppData\Local\Temp/ccIsKOPB.s:2      *ABS*:0000003f __SREG__
-C:\Users\macie\AppData\Local\Temp/ccIsKOPB.s:3      *ABS*:0000003e __SP_H__
-C:\Users\macie\AppData\Local\Temp/ccIsKOPB.s:4      *ABS*:0000003d __SP_L__
-C:\Users\macie\AppData\Local\Temp/ccIsKOPB.s:5      *ABS*:00000034 __CCP__
-C:\Users\macie\AppData\Local\Temp/ccIsKOPB.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\macie\AppData\Local\Temp/ccIsKOPB.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\macie\AppData\Local\Temp/ccIsKOPB.s:18     .text:00000000 main
+C:\Users\macie\AppData\Local\Temp/ccOktR0M.s:2      *ABS*:0000003f __SREG__
+C:\Users\macie\AppData\Local\Temp/ccOktR0M.s:3      *ABS*:0000003e __SP_H__
+C:\Users\macie\AppData\Local\Temp/ccOktR0M.s:4      *ABS*:0000003d __SP_L__
+C:\Users\macie\AppData\Local\Temp/ccOktR0M.s:5      *ABS*:00000034 __CCP__
+C:\Users\macie\AppData\Local\Temp/ccOktR0M.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\macie\AppData\Local\Temp/ccOktR0M.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\macie\AppData\Local\Temp/ccOktR0M.s:18     .text:00000000 main
 
 UNDEFINED SYMBOLS
 initMikroController
